@@ -30,7 +30,7 @@ Predict a number infinitely many possible outputs
 
 #### Housing Price Prediction
 
-![image of Housing Price Prediction](Housing-Price-Prediction.png)
+![image of Housing Price Prediction](images/Housing-Price-Prediction.png)
 Example which uses Linear Regression
 
 ### b. Classification
@@ -45,10 +45,10 @@ Example which uses Linear Regression
 Detect if tumor is maligant or benign
 Can have different types than the above like maligant type 1 or maligant 2
 
-![image of Breast Cancer Classification](Breast-Cancer-Classification.png)
+![image of Breast Cancer Classification](images/Breast-Cancer-Classification.png)
 
 The learning algorithm can find boundary line that seperates the 2 categories
-![image of Breast Cancer Classification](Breast-Cancer-Classification-2.png)
+![image of Breast Cancer Classification](images/Breast-Cancer-Classification-2.png)
 
 ## 2. Unsupervised Learning
 
@@ -57,7 +57,7 @@ The learning algorithm can find boundary line that seperates the 2 categories
 - Find something interesting in data
 - Tell machine to find clustering
 
-![image of Unsupervised Learning](Unsupervised-Learning.png)
+![image of Unsupervised Learning](images/Unsupervised-Learning.png)
 
 ### a. Clustering
 
@@ -67,16 +67,16 @@ The learning algorithm can find boundary line that seperates the 2 categories
 #### Google News
 
 - Groups data based on specific feature which is for examples panda, zoo, twin
-![image of Google news](Google-News.png)
+![image of Google news](images/Google-News.png)
 
 #### DNA Microarray
 
-![image of DNA Microarray](DNA-Microarray.png)
+![image of DNA Microarray](images/DNA-Microarray.png)
 
 #### Grouping Customers
 
 Market Segmentation
-![image of Grouping Customers](Grouping-Customers.png)
+![image of Grouping Customers](images/Grouping-Customers.png)
 
 ### b. Anamoly Detection
 
