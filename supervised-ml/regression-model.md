@@ -74,3 +74,40 @@ $f(x) = wx + b$
 **Univariate Linear Regression:** Uni means One Variable
 
 y is the true value for that training example, referred to as the output variable, or “target”.
+
+## Cost Function
+
+Will tell us how well the model is doing in order to do better
+
+Model:
+$$f_{w,b}(x) = wx + b$$
+
+$w,b$ : parameters are variable can be adjusted during the model training
+
+$w,b$ : are also called coeffcients or weights
+
+$w$ : slope y-x = 0.5- 1 = 0.5
+$b$ : is also called  y-intercept
+
+Examples of different  $w , b$
+
+![image of Cost Function Examples](images/Cost-Function-Examples.png)
+
+## Cost Function Formula
+
+**Cost Function:** Squared Error Cost Function
+
+![image of Cost Function Formula](images/Cost-Function-Formula.png)
+
+Formula for cost function
+$$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 $$
+
+Formula for finding prediction of example by using the model
+$$ŷ^{(i)} = f_{w,b}(x^{(i)})$$
+
+Formula for the model 
+$$f_{w,b}(x^{(i)}) = wx^{(i)} + b$$
+
+**Find $w,b$:**
+
+$ŷ^{(i)}$ is close to $y^{(i)}$ for all $(x^{(i)}, x^{(i)})$
