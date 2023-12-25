@@ -24,25 +24,26 @@ Linear Regression can be used to fit straight line into data
 
 ### Notation
 
-_x_ = "input" variable/ feature
+$x$ = "input" variable/ feature
 
-_y_ = "output" variable/ "target" variable
+$y$ = "output" variable/ "target" variable
 
-_m_ = number of training examples
+$m$ = number of training examples
 
-_(x, y)_ = single training example
+$(x, y)$ = single training example
 
-_(x<sup>(i)</sup>, y<sup>(i)</sup>)_ = i<sup>th</sup> training example (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>...)
+$(x^{i}, y^{i})$ = $i^th$ training example ($1^{st}$, $2^{nd}$, $3^{rd}$...)
 
-_i_ = index of training example
+$i$ = index of training example
 
-_ŷ_ = estimated prediction
+$ŷ$ = estimated prediction
 
 **Note**:
-* i is not exponent, but index in the training example
 
-* x<sup>(1)</sup> refers to example 1 input which is 2104
-and y<sup>(1)</sup> refers to example 1 output which is 400
+* $i$ is not exponent, but index in the training example
+
+* $x^{1}$ refers to example 1 input which is 2104
+and $y^{1}$ refers to example 1 output which is 400
 
 ![image of Terminology](images/Terminology.png)
 
@@ -50,27 +51,26 @@ and y<sup>(1)</sup> refers to example 1 output which is 400
 
 1. Training Set (features + targets)
 2. Learning Algorithms
-3. _f_  function/hypothesis
+3. $f$  function/hypothesis
 
-_x_ (input, feature )---> _f_ (function/ model) ---> _ŷ_ (y- hat) prediction (estimated _y_ target)
+$x$ (input, feature )---> $f$ (function/ model) ---> $ŷ$ (y- hat) prediction (estimated $y$ target)
 
 ![image of Training Graph](images/Training-Graph.png)
 
 ### Example
 
-Size _x_ ---> _f_ --->  House Price (estimated) _ŷ_
+Size $x$ ---> $f$ --->  House Price (estimated) $ŷ$
 
-## How to represent _f_ ?
+## How to represent $f$ ?
 
-_f<sub>w,b</sub>(x)_ = WX + b
+$f_{w,b}(x) = wx + b$
 
 Same thing
 </br>
-_f(x)_ = WX + b
+$f(x) = wx + b$
 
 **Linear Regression with one variable/ single feature _x_ -->size**
 
 **Univariate Linear Regression:** Uni means One Variable
 
 y is the true value for that training example, referred to as the output variable, or “target”.
-
