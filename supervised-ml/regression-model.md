@@ -36,7 +36,7 @@ $(x^{i}, y^{i})$ = $i^th$ training example ($1^{st}$, $2^{nd}$, $3^{rd}$...)
 
 $i$ = index of training example
 
-$ŷ$ = estimated prediction
+$\hat{y}$ = estimated prediction
 
 **Note**:
 
@@ -53,13 +53,13 @@ and $y^{1}$ refers to example 1 output which is 400
 2. Learning Algorithms
 3. $f$  function/hypothesis
 
-$x$ (input, feature )---> $f$ (function/ model) ---> $ŷ$ (y- hat) prediction (estimated $y$ target)
+$x$ (input, feature )---> $f$ (function/ model) ---> $\hat{y}$ (y- hat) prediction (estimated $y$ target)
 
 ![image of Training Graph](images/Training-Graph.png)
 
 ### Example
 
-Size $x$ ---> $f$ --->  House Price (estimated) $ŷ$
+Size $x$ ---> $f$ --->  House Price (estimated) $\hat{y}$
 
 ## How to represent $f$ ?
 
@@ -100,14 +100,66 @@ Examples of different  $w , b$
 ![image of Cost Function Formula](images/Cost-Function-Formula.png)
 
 Formula for cost function
+It compares the predicted y values ($\hat{y}$) and the actual y values ($y$)
 $$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 $$
 
-Formula for finding prediction of example by using the model
-$$ŷ^{(i)} = f_{w,b}(x^{(i)})$$
+$m$ = numbers of examples
 
-Formula for the model 
+$x$ = "input" variable/ feature
+
+$y$ = "output" variable/ "target" variable
+
+$w$ = weight
+
+$b$ = bias
+
+Formula for finding prediction of example by using the model
+$$\hat{y}^{(i)} = f_{w,b}(x^{(i)})$$
+
+
+Formula for the Model
 $$f_{w,b}(x^{(i)}) = wx^{(i)} + b$$
 
 **Find $w,b$:**
 
-$ŷ^{(i)}$ is close to $y^{(i)}$ for all $(x^{(i)}, x^{(i)})$
+$\hat{y}^{(i)}$ is close to $y^{(i)}$ for all $(x^{(i)}, x^{(i)})$
+
+### Cost Function Intitution
+
+Cost function will find the values for $w$ and $b$ that makes $J(w,b)$ as small as possible
+
+**Goal:**
+Minimize $_{w,b}$ $J(w,b)$
+
+**Simplified:**
+$f_{w} = wx$ , $b=\empty$
+
+(Removing the bias)
+
+$$J(w) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w}(x^{(i)}) - y^{(i)})^2 $$
+
+$$f_{w}(x^{(i)}) = w x^{(i) }$$
+
+Minimize $_{w}$ $J(w)$
+
+![image of Cost Function Formula Intitution](images/Cost-Function-Formula-Intitution.png)
+
+Cost Function subtitution (for fixed $w$, function of $x$) with $w=1$ and $f_{w}(x)$ , $f(x)$ represents making the prediction
+
+![image of Cost Function Function F(x)](images/Cost-Function-F(x).png)
+
+Each value of parametered $J$ corresponds to different straight line fit $f(x)$ on $f_{w}(x)$ graph
+
+For given training set the choice for W corresponds for single point in the $f_w(x)$ graph
+
+![image of Cost  Function J(W)](images/Cost-Function-J(W).png)
+
+$J(W)$ represents the mean squared error in the model, so the point where it is the least is the goal $W$
+
+The goal of linear regression is to minimze $w$ in Cost function $J(W)$ and in general minimze $w,b$ J(w,b)$
+
+![image of Cost  Function J(W)](images/Cost-Function-Goal.png)
+
+**When does the model fit the data relatively well, compared to other choices for parameter w?**
+
+When the cost is relatively small, closer to zero, it means the model fits the data better compared to other choices for w and b.
