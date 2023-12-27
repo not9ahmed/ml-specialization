@@ -163,3 +163,11 @@ The goal of linear regression is to minimze $w$ in Cost function $J(W)$ and in g
 **When does the model fit the data relatively well, compared to other choices for parameter w?**
 
 When the cost is relatively small, closer to zero, it means the model fits the data better compared to other choices for w and b.
+
+<br>
+<br>
+
+## Visualizing the Cost Function
+
+definition
+
