@@ -169,5 +169,42 @@ When the cost is relatively small, closer to zero, it means the model fits the d
 
 ## Visualizing the Cost Function
 
-definition
+Contour Plot can be used for visualize
 
+Contour plot are a great way to visualize the 3D cost function $J$ ploted in 3D
+
+![image of Visualizing Cost Function](images/Visualizing-Cost-Function.png)
+
+The below image shows how B & W are selected to represent the minimum point in 3D surface Chart
+![image of Visualizing Cost Function with B and W](images/Visualizing-Cost-Function-B-W.png)
+
+Topographical map used to display how high mountains are, and had horizontal slicing of the mountain
+
+### Images of Topographical Map
+
+![image of Topographical Map 1](images/Topographical-Map-1.png)
+![image of Topographical Map 2](images/Topographical-Map-2.png)
+
+Minimum will be in the center of oval in contour plot
+
+![image of Topographical Map 3](images/Topographical-Map-3.png)
+
+### Exampless of Cost Function Visualization with diffrenet W & B values
+
+**Example 1:**
+$f(x) = -0.15x+800$ where $w=-0.15, b=800$
+![image of Cost Function Visualization 1](images/Cost-Function-Visualization-1.png)
+
+**Example 2:**
+$f(x) = 0x+800$ where $w=0, b=360$
+![image of Cost Function Visualization 2](images/Cost-Function-Visualization-2.png)
+
+**Example 3:**
+$f(x) = -0.15x+500$ where $w=-0.15, b=500$
+![image of Cost Function Visualization 3](images/Cost-Function-Visualization-3.png)
+
+**Example 4:**
+$f(x) = 0.13x+71$ where $w=0.13, b=71$
+![image of Cost Function Visualization 4](images/Cost-Function-Visualization-4.png)
+
+#### Instead of finding the minimum cost function, and algorithm can be used to find the minimum which is called **Gradient Descent** and it is one of the most algorithms in machine learning
