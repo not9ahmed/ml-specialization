@@ -29,3 +29,24 @@ Based on starting it can lead to different minimum, and this minimum can be call
 
 The lowest point where $J$ is considered the minimum and it's depending on the starting point parameters
 ![image of Local Minima](images/Local-Minima.png)
+
+## Gradient Descent Algorithm
+
+Repeat until convergence, reach the point at local minima, where parameters $w, b$ does not change much with additional steps
+
+Formula for updating the weights
+$$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
+
+= : Assignment
+
+$\alpha$ : Learning Rate. Controls how much a big step to take downhill. Big value means huge step, and small value means small step.
+
+${\partial \over w}  J(w,b)$ : Dervitive step, determine the size of steps
+
+Formula for updating the bias
+$$b =  b - \alpha {\partial \over \partial b}  J(w,b)$$
+
+**Simultaneously update $w$ and $b$ is required to update the parameters**
+
+![image of Gradient Descent Algorithm](images/Gradient-Descent-Algorithm.png)
+
