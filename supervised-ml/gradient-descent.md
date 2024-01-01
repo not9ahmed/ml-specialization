@@ -39,9 +39,9 @@ $$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
 
 = : Assignment
 
-$\alpha$ : Learning Rate. Controls how much a big step to take downhill. Big value means huge step, and small value means small step.
+$\alpha$: (alpha) Learning Rate. Controls how much a big step to take downhill. Big value means huge step, and small value means small step.
 
-${\partial \over w}  J(w,b)$ : Dervitive step, determine the size of steps
+${\partial \over w}  J(w,b)$ : Parital dervitive step, determine the size of steps
 
 Formula for updating the bias
 $$b =  b - \alpha {\partial \over \partial b}  J(w,b)$$
@@ -49,4 +49,40 @@ $$b =  b - \alpha {\partial \over \partial b}  J(w,b)$$
 **Simultaneously update $w$ and $b$ is required to update the parameters**
 
 ![image of Gradient Descent Algorithm](images/Gradient-Descent-Algorithm.png)
+
+## Gradient Descent Intitution
+
+![image of Gradient Descent Intitution](images/Gradient-Descent-Intitution.png)
+
+Derivative point at this line is drawing a tangent line, and to draw the slope I can draw a triangle. The height $\div$ (width/base) = slope
+
+$w =  w - [\alpha {\partial \over \partial w}  J(w,b)]$
+
+$\alpha$ is the learning rate and it's always a positive number
+
+### In case of positive
+
+${\partial \over \partial w}  J(w,b) > 0$
+
+$w =  w - \alpha$ * (positive number), - times + gives negative
+
+so it moves to the left towards the minimum, due to negative slope
+
+
+
+### In case of negative
+
+${\partial \over \partial w}  J(w,b) < 0$
+
+$w =  w - \alpha$ * (negative number), - times - gives positive
+
+so it moves to the right towards the minimum, due to negative slope
+
+<br/>
+
+![image of Gradient Descent Examples](images/Gradient-Descent-Examples.png)
+
+The 2 examples of updating the weight according the slope on the point choosen, in case of (+) slope the term $\alpha {\partial \over \partial w}  J(w,b)$ becomes negative, so it shifts to left <-- negative x-axis to reach minimum.
+
+In case of (-) slope the term $\alpha {\partial \over \partial w}  J(w,b)$ becomes positive, so it shifts towards the right ro reach minimum.
 
