@@ -189,19 +189,25 @@ Minimum will be in the center of oval in contour plot
 
 ![image of Topographical Map 3](images/Topographical-Map-3.png)
 
-### Exampless of Cost Function Visualization with diffrenet W & B values
+### Examples of Cost Function Visualization with diffrenet W & B values
 
 **Example 1:**
 $f(x) = -0.15x+800$ where $w=-0.15, b=800$
 ![image of Cost Function Visualization 1](images/Cost-Function-Visualization-1.png)
 
+<br/>
+
 **Example 2:**
 $f(x) = 0x+800$ where $w=0, b=360$
 ![image of Cost Function Visualization 2](images/Cost-Function-Visualization-2.png)
 
+<br/>
+
 **Example 3:**
 $f(x) = -0.15x+500$ where $w=-0.15, b=500$
 ![image of Cost Function Visualization 3](images/Cost-Function-Visualization-3.png)
+
+<br/>
 
 **Example 4:**
 $f(x) = 0.13x+71$ where $w=0.13, b=71$

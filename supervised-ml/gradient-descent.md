@@ -145,3 +145,94 @@ Gradient descent used to minimze any cost function, and not only mean squared er
 
 ![image of Fixed Learning Rate](images/Fixed-Learning-Rate.png)
 
+## Gradient Descent for Linear Regression
+
+### Linear Regression Model
+
+$$f_{w,b}(x) = wx + b$$
+
+### Cost Function Model
+
+$$J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 $$
+
+### Gradient Descent Algorithm Steps
+
+Repeat until convergence {
+
+For weight $w$
+$$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
+
+Formula can be used to compute the gradient descent for $w$
+$${\partial \over \partial w}J(w,b) = \frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{i} $$
+
+For bias $b$
+$$b =  b - \alpha {\partial \over \partial b}  J(w,b)$$
+
+Formula can be used to compute the gradient descent $b$
+$${\partial \over \partial b}J(w,b) = \frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)}) $$
+
+(The formulas are derived from calculas)
+
+}
+
+#### Partial Derivative Steps
+
+(Type the proof)
+
+![image of Partial Derivative For Gradient](images/Partial-Derivative-For-Gradient.png)
+
+
+### Gradient Descent Algorithm Steps Subtituted
+
+Repeat until convergence {
+
+For weight $w$
+$$w =  w - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{i}]$$
+
+For bias $b$
+$$b =  b - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})]$$
+
+update $w, b$ simultaneously
+
+}
+
+w[1] =${\partial \over \partial w} J(w,b)$
+
+b[2] =${\partial \over \partial b} J(w,b)$
+
+$f_{w,b}x^{(i)} = wx^{(i)} + b$
+
+Screenshot of the algorithm
+![image of Gradient Descent Algorithm Sub](images/Gradient-Descent-Algorithm-Sub.png)
+
+<br/>
+
+In case of more than one local minimum, the starting point will determine which local minimum will be reached
+![image of more than one local minimum](images/More-Than-1-Local.png)
+
+<br/>
+
+In Squared Error Cost with linear regression
+the cost function will never have multiple local minimum, and it will have one single minimum
+
+Due to cost function  being a convex function, and which it has bowl shape. It will always converge to global minimum.
+Example shown below
+![image of Squared Error Cost](images/Squared-Error-Cost.png)
+
+## Running Gradient Descent
+
+As the algorithm continues to run, the cost will decrease until it reaches the minimum and the line will fit the data
+
+It is refered to as Batch Gradient Descent
+![image of Gradient Descent Running](images/Gradient-Descent-Running.png)
+
+### "Batch" Gradient Descent
+
+"Batch": Each step of gradient descent it will use all the training examples. Instead of subset of the data.
+
+It will look at the entire batch or all examples. it will be 47, so $m=47$
+$$\sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{i}$$
+
+There are other gradient descent which looks into subsets
+
+![image of Batch Gradient Descent](images/Batch-Gradient-Descent.png)
