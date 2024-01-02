@@ -86,3 +86,62 @@ The 2 examples of updating the weight according the slope on the point choosen, 
 
 In case of (-) slope the term $\alpha {\partial \over \partial w}  J(w,b)$ becomes positive, so it shifts towards the right ro reach minimum.
 
+## Learning Rate
+
+$$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
+
+1. If $\alpha$ is too small...
+
+    For example 0.000001
+
+    Gradient Descent will take a lot of steps to reach the minimum, and will be very slow.
+
+2. If $\alpha$ is too large
+
+    For example, 1000.0
+
+    Gradient Descent may overshoot, and never reaches the minimum.
+    Fail to converge, diverge.
+
+![image of Learning Rate](images/Learning-Rate.png)
+
+Once the cost function have reached the local minima, the slope at that point will be 0.
+Thus, the partial derivative will be evaluted to 0.
+
+$$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
+
+$$ {\partial \over \partial w}  J(w,b) = 0$$
+
+$$w =  w - \alpha * 0$$
+
+$$w =  w $$
+
+The updated $w$ will be equal to the previous $w$
+
+Below is a screenshoot of reaching the local minima.
+![image of Reaching Local Minima](images/Reaching-Local-Minima.png)
+
+<br/>
+
+### Can reach local minimum with fixed Learning Rate
+
+When reaching near local minima, gradient descent will automaticallly take smaller steps
+
+As apporaching the local minima, the derivative will automatically be smaller, and update steps become smaller
+
+$$w =  w - \alpha {\partial \over \partial w}  J(w,b)$$
+
+$$\alpha {\partial \over \partial w}  J(w,b)$$
+Large ---> Not as large ---> Smaller
+
+Near Local minimum
+
+- Derivative becomes smaller
+- Updates steps becomes smaller
+
+Can reach minimum without deceasing learning rate $\alpha$
+
+Gradient descent used to minimze any cost function, and not only mean squared error
+
+![image of Fixed Learning Rate](images/Fixed-Learning-Rate.png)
+
