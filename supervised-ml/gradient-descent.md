@@ -181,7 +181,6 @@ $${\partial \over \partial b}J(w,b) = \frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,
 
 ![image of Partial Derivative For Gradient](images/Partial-Derivative-For-Gradient.png)
 
-
 ### Gradient Descent Algorithm Steps Subtituted
 
 Repeat until convergence {
