@@ -46,3 +46,34 @@ For housing pricing it can be observed that each feature effects the pricing as 
 
 ![image of House Model Example](images/House-Model-Example.png)
 House-Model-Example.png
+
+Previously the model 1 feature it was like this
+
+$$f_{w,b}(X) = wx + b$$
+
+For $n$ features the model will look like this
+
+$$f_{\vec{w},b}(\vec{X}) = w_{1} x_{1} + w_{2} x_{2} + \dotso + w_{n} x_{n} + b$$
+
+Parameters of the model:
+
+Represents a vector of weights, and it is a row vector
+$$\vec{w} = [w_{1} \space w_{2} \space w_{3} \space \dotso \space w_{n}]$$
+
+$b$ is a number
+
+Represents a vector of features, and it is a row vector
+$$\vec{X} = [x_{1} \space x_{2} \space x_{3} \space \dotso \space x_{n}]$$
+
+Rewriting the model, to represent the vector and it should be the below
+<br/>
+Where $\cdot$ represents a dot product from Linear Algebra
+
+**Multiple Linear Regression:** Linear regession with multiple input variables
+
+$$f_{\vec{w},b}(\vec{X}) = \vec{W} \cdot \vec{X}  + b = w_{1} x_{1} + w_{2} x_{2} + \dotso + w_{n} x_{n} + b$$
+
+(It is NOT called multvariate regression and it something else)
+
+**Vectorization** can be used which make it simple to implement this and other learning algorithms.
+
