@@ -150,4 +150,46 @@ f = np.dot(w,x) + b
 The following screenshot shows example of running vectorization with the dot product in NumPy which runs faster than the other implementations.
 ![image of Vectorization](images/Vectorization.png)
 
+### Without Vectorization vs Vectorization
 
+#### Without Vectorization
+
+```python
+for j in range(0,16):
+    f = f + w[j] * x[j]
+```
+
+$n = 15$
+
+Will run at each time step at a time
+
+$t_{0}$ -->  $f = f + w[0] * x[0]$
+
+$t_{1}$ -->  $f = f + w[1] * x[2]$
+
+$t_{2}$ -->  $f = f + w[2] * x[2]$
+
+$\dotso$
+
+$t_{15}$ -->  $f = f + w[15] * x[15]$
+
+#### With Vectorization
+
+```python
+np.dot(w,x)
+```
+
+$n = 15$
+
+Will run at each time step at a time
+
+$t_{0}$ ------>  $[w[0] \space w[1] \dotso w[15]]$
+
+In parallel   *   * ... *  (multiplication)
+
+$t_{1}$ -->  $w[0]*x[0] + \space w[1] * x[1] + \dotso + w[15] * x[15]$
+
+Effcient --> scale to large datasets
+
+Without vs With Vectorization
+![image of Without vs With Vectorization](images/Without-With-Vectorization.png)
