@@ -193,3 +193,54 @@ Effcient --> scale to large datasets
 
 Without vs With Vectorization
 ![image of Without vs With Vectorization](images/Without-With-Vectorization.png)
+
+### Gradient Descent Without vs With Vectorization
+
+The weights:
+$$\vec{w} = (w_{1} \space w_{2} \space \dotso \space w_{16})$$
+
+The derivative terms:
+$$\vec{d} = (d_{1} \space d_{2} \space \dotso \space d_{16})$$
+
+```python
+w = np.array([0.5, 1.3, ..., 3.4])
+d = np.array([0.3, 0.2, ..., 0.4])
+```
+
+Compute $w_{j} = w_{j} - 0.1 d_{j}$ for $j = 1 \dotso 16$
+
+#### Without Vectorization
+
+$w_{1} = w_{1} - 0.1d_{1}$
+
+$w_{2} = w_{2} - 0.1d_{2}$
+
+$\dotso$
+
+$w_{16} = w_{16} - 0.1d_{16}$
+
+```python
+for j in range(0,16):
+    w[j] = w[j] - 0.1 * d[j]
+```
+
+#### With Vectorization
+
+$$\vec{w} = \vec{w} - 0.1\vec{d}$$
+
+first the $\vec{w}$ will get take and get subtracted by 0.1 * d, in single time
+
+0.1 * $\vec{d}$ will get multiplied in single time to all the elements.
+
+Then the result of subtraction will get stored in np array w
+
+```python
+w = w - 0.1 * d
+```
+
+The following image shows implementation of gradient descent with vectorization
+![image of Gradient Descent Vectorization](images/Gradient-Descent-Vectorization.png)
+
+<br/>
+
+### Gradient Descent for Multiple Linear Regression
