@@ -244,3 +244,141 @@ The following image shows implementation of gradient descent with vectorization
 <br/>
 
 ### Gradient Descent for Multiple Linear Regression
+
+### Previous Notation
+
+**Parameters:**
+
+$$w_{1}, \dotso, w_{n}$$
+
+$$b$$
+
+**Model:**
+$$f_{\vec{w},b}(\vec{X}) = w_{1} x_{1} + w_{2} x_{2} + \dotso + w_{n} x_{n} + b$$
+
+**Cost Function:**
+$$J(w_{1}, ...,w_{n}, b)$$
+
+**Gradient Descent:**
+
+repeat {
+
+$$w_{j} =  w_{j} - \alpha {\partial \over \partial w_{j}} J(w_{1}, \dotso, w_{n}, b)$$
+
+$$b =  b - \alpha {\partial \over \partial b} J(w_{1}, \dotso, w_{n}, b)$$
+}
+
+---
+
+### Vector Notation
+
+**Parameters:**
+$$\vec{w} = [w_{1} \dotso w_{n}]$$
+
+still a number
+$$b$$
+
+**Model:**
+$$f_{\vec{w},b}(\vec{X}) = \vec{W} \cdot \vec{X}  + b$$
+
+**Cost Function:** and it will return a number
+$$J(\vec{W}, b)$$
+
+**Gradient Descent:**
+
+repeat {
+
+$$w_{j} =  w_{j} - \alpha {\partial \over \partial w_{j}} J(\vec{W}, b)$$
+
+$$b =  b - \alpha {\partial \over \partial b} J(\vec{W}, b)$$
+}
+
+---
+
+![image of Gradient Descent Previous vs Vector Notation](images/Gradient-Notations-Comparisons.png)
+
+<!-- Write the formulas here -->
+
+### Gradient Descent One Feature
+
+Repeat  {
+
+For weight $w$
+$$w =  w - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{(i)}]$$
+
+w[1] =${\partial \over \partial w} J(w,b)$
+
+For bias $b$
+$$b =  b - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})]$$
+
+b[2] =${\partial \over \partial b} J(w,b)$
+
+update $w, b$ simultaneously
+
+}
+
+
+---
+
+### Gradient Descent Multiple Features
+
+$n$ features ($n \ge 2$)
+
+Repeat  {
+
+For weight $w$
+
+$$j = 1$$
+
+$$w_{1} =  w_{1} - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{\vec{W},b}(\vec{X}^{(i)}) - y^{(i)}) x_{1}^{(i)}]$$
+
+w[1] =${\partial \over \partial w_{1}} J(\vec{W},b)$
+
+$\dotso$
+
+$$w_{n} =  w_{n} - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{\vec{W},b}(\vec{X}^{(i)}) - y^{(i)}) x_{n}^{(i)}]$$
+
+For bias $b$
+$$b =  b - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{\vec{W},b}(\vec{X}^{(i)}) - y^{(i)})]$$
+
+b[2] =${\partial \over \partial b} J(\vec{W},b)$
+
+<br/>
+
+Simultaneously Update
+
+$w_{j}$ (for $j = 1, \dotso , n$) and $b$
+
+}
+
+---
+
+The following image showcases the difference when computing gradient descent for datasets with multiple features.
+
+First difference in [1] that $W, X$ are now vectors
+
+It can be noticed that parameters $w$ are having subscript w $w_{1}$ which means that for single feature weight
+
+Also, the example feature $x$ is now a vector to indicate that it is multiple features, and not single feature
+![image of Gradient Descent Features comparisons in the formula](images/Gradient-Features-Comparisons.png)
+
+---
+
+### Alternative to Gradient Descent
+
+**Normal Equation:**
+
+- Only for linear Regression
+- Solve for $w, b$ without iterations
+
+**Disadvantages:**
+
+- Doesn't generalize to other learning algorithms like logistic regression, neural networks
+- Slow when number of features is large (> 10,000)
+- Almost not ML parctitioner should implement normal equation by themselves
+
+**What you need to know:**
+
+- Normal equation mehtod may be used in machine learning libraries that implement linear regression in order solve for $w, b$.
+- Gradient descent is still the recommended method for finding parameters $w, b$.
+

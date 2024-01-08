@@ -186,7 +186,7 @@ $${\partial \over \partial b}J(w,b) = \frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,
 Repeat until convergence {
 
 For weight $w$
-$$w =  w - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{i}]$$
+$$w =  w - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})x^{(i)}]$$
 
 For bias $b$
 $$b =  b - \alpha [\frac{1}{m} \sum\limits_{i = 1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})]$$
