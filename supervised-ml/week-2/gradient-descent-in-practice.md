@@ -99,9 +99,138 @@ The following image showcases rescaling of features
 
 #### Feature Scaling is very important to speed up Gradient Descent
 
+## Feature Scaling Works Examples
+
+### Feature Scaling By Dividing by Max
+
+Which divides the feature by the max value, and range will be between 0 and 1.
+
+**Feature 1:**
+
+$300 \le x_{1} \le 2000$, where 2000 is the max
+
+$x_{1, scaled} = {x_{1}\over 2000}$
+
+$0.15 \le x_{1,scaled} \le 1$
+
+---
+
+**Feature 2:**
+
+$0 \le x_{2} \le 5$, where 5 is the max
+
+$x_{2, scaled} = {x_{1}\over 5}$
+
+$0 \le x_{2,scaled} \le 1$
+
+The below image show cases how feature scaling by max value work.
+It can distribute the number with range of 0 and 1
+![image of Feature Scaling Example](images/Feature-Scaling-Example.png)
+
+### Feature Scaling By Mean Normalization
+
+Rescale the feature to be centered around 0, and range is within -1 and +1.
+
+First find mean/average of a feature $\mu_{1}$
+
+$\mu$: Mean
+
+**Feature 1:**
+
+$\mu_{1} = 600$
+
+$300 \le x_{1} \le 2000$
+
+$x_{1} = {{x_{1} - \mu_{1}} \over {max-min}}$
+
+$x_{1} = {{x_{1} - 600} \over {2000-300}}$
+
+$x_{1} = {{x_{1} - 600} \over {1700}}$
+
+Substitute in the range
+
+${{300 - 600} \over {1700}}\le x_{1} \le {{2000 - 600} \over {1700}}$
+
+$-0.18 \le x_{1,scaled} \le 0.82$
+
+---
+
+**Feature 2:**
+
+$\mu_{2} = 2.3$
+
+$0 \le x_{2} \le 5$
+
+$x_{2} = {{x_{2} - \mu_{1}} \over {max-min}}$
+
+$x_{2} = {{x_{2} - 2.3} \over {5-0}}$
+
+$x_{2} = {{x_{2} - 2.3} \over {5}}$
+
+Substitute in the range
+
+${{0 - 2.3} \over {5}}\le x_{2} \le {{5 - 2.3} \over {5}}$
+
+$-0.46 \le x_{2,scaled} \le 0.54$
+
+Below is an image which show features scalling with mean normalization  method
+![image of Feature Scaling with Mean Normalization Example](images/Feature-Scaling-Mean-Example.png)
+
+### Feature Scaling By Z-Score Normalization
+
+We need to calculate Standard Deviation $\sigma$ fo each feature in order to compute Z-Score normalization.
+
+Also, mean is needed to be calculated $\mu$
+
+$\sigma$: Standard Deviation, Bell Curve, Gaussian Distribution, Normal Distribution
+
+**Feature 1:**
+
+$\mu_{1} = 600$
+
+$\sigma_{1} = 450$
+
+$300 \le x_{1} \le 2000$
+
+$x_{1} = {{x_{1} - \mu_{1}} \over \sigma{1}}$
+
+$x_{1} = {{x_{1} - 600} \over 450}$
+
+Substitute in the range
+
+${{300 - 600} \over 450}\le x_{1} \le {{2000 - 600} \over {450}}$
+
+$-0.67 \le x_{1,scaled} \le 3.1$
+
+---
+
+**Feature 2:**
+
+$\mu_{2} = 2.3$
+
+$\sigma_{2} = 1.4$
+
+$0 \le x_{2} \le 5$
+
+$x_{2} = {{x_{2} - \mu_{2}} \over \sigma{2}}$
+
+$x_{2} = {{x_{2} - 2.3} \over 1.4}$
+
+Substitute in the range
+
+${{0 - 2.3} \over 1.4}\le x_{2} \le {{5 - 2.3} \over {1.4}}$
+
+$-1.64 \le x_{1,scaled} \le 1.93$
+
+Below image showcase z-score normalization which takes into consideration the standard deviation $\sigma$ and mean $\mu$.
+The range is within -3 and +3 unlike the mean which was in -1 and +1.
+![image of Feature Scaling with Z-Score Normalization Example](images/Feature-Scaling-Z-Score-Example.png)
 
 
 
+
+
+<!-- study standard deviation -->
 
 <!-- ## Checking Gradient Descent for Convergence -->
 
