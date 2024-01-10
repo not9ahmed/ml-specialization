@@ -226,12 +226,35 @@ Below image showcase z-score normalization which takes into consideration the st
 The range is within -3 and +3 unlike the mean which was in -1 and +1.
 ![image of Feature Scaling with Z-Score Normalization Example](images/Feature-Scaling-Z-Score-Example.png)
 
+### Feature Scalling Aim
 
+Aim for about the below ranges for each feature $x_{j}$
 
+Accaptable Ranges:
 
+- $-1 \le x_{j} \le 1$
+- $-3 \le x_{j} \le 3$
+- $-0.3 \le x_{j} \le 0.3$
+
+Okay, no rescalling required:
+
+- $0 \le x_{j} \le 3$
+- $-2 \le x_{j} \le 0.5$
+
+Too Large, and too small, both require scalling. Too large will cause gradient descent to run slow:
+
+- $-100 \le x_{j} \le 100$, too large
+- $-0.001 \le x_{j} \le 0.001$, too small
+- $-98.6 \le x_{j} \le 105$, (temprature around 100) too large
 
 <!-- study standard deviation -->
+
+
 
 <!-- ## Checking Gradient Descent for Convergence -->
 
 <!-- ## Choosing the Learning Rate -->
+
+## Topics to Learn
+
+- Standard Deviation $\sigma$
