@@ -247,13 +247,65 @@ Too Large, and too small, both require scalling. Too large will cause gradient d
 - $-0.001 \le x_{j} \le 0.001$, too small
 - $-98.6 \le x_{j} \le 105$, (temprature around 100) too large
 
-<!-- study standard deviation -->
+Below image shows when it is required to feature scale
+![image of When to scale](images/When-To-Scale.png)
+
+## Checking Gradient Descent for Convergence
+
+How to tell if the gradient is converging, find parameters close to the global minimum.
+
+**Reminder:**
+
+$$w_{j} = w_{j} - \alpha {\partial \over \partial w_{j}}J(\vec{W}, b)$$
+
+$$w_{j} = w_{j} - \alpha {\partial \over \partial b}J(\vec{W}, b)$$
+
+### Make sure gardient descent is working correctly
+
+**Objective:** $min_{\vec{W},b} J(\vec{W}, b)$
+
+$J(\vec{W}, b)$ should decrease after every iterations
+
+If $J$ ever increased at any point, this means the learning rate $\alpha$ was not choosen properly.
+
+**Possible root cause:**
+
+- The $\alpha$ is too large.
+- Bug in the code.
+
+The following plot can be used which has the number of iteration in x-axis and $J(\vec{W}, b)$ on the y-axis.
+
+The curve is called **Learning Curve**
+
+Difficult find when the gradient descent will converge as the number of iterations need varies depending on the model.
+
+However, plotting the Learning Curve can help to know when to stop the model training.
 
 
+Automatic Convergence Test
 
-<!-- ## Checking Gradient Descent for Convergence -->
+Let $\epsilon$ "epsilon" be $10^{-3}$ = 0.001.
 
-<!-- ## Choosing the Learning Rate -->
+If $J(\vec{W},b)$ decreases by $\le \epsilon$ in one iteration,
+    declare **convergence**
+
+- (Found parameters $\vec{W}, b$ to get close to global minimum)
+
+<br/>
+
+**Notes:**
+
+Learning Curve is easier to know when something is going wrong, like learning rate $\alpha$ is too large.
+
+Difficult to choose a good $\epsilon$ epsilon value.
+
+Below image shows learning curve and Automatic Convergence Test
+![image of Learning Curve](images/Learning-Curve-Auto-Test.png)
+
+---
+
+## Choosing the Learning Rate
+
 
 ## Topics to Learn
 
