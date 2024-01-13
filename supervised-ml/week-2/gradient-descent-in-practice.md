@@ -304,9 +304,67 @@ Below image shows learning curve and Automatic Convergence Test
 
 ---
 
-## Choosing the Learning Rate
+## Choosing the Learning Rate $\alpha$
+
+### Identify problem with gradient descent
+
+The gradient descent can possibly have 2 problems which are:
+
+- Bug in the code
+- Learning rate is too large
+
+From the Learning Curve we can notice or identify the possible reason for the problem
+
+- Spiky Cost $J(\vec(W),b)$ which shows that on every few # of iterations goes up an down. Which is caused by large value for learning rate $\alpha$. For parameter $w_{1}$ the gradient can be seen goes far from the global minimum.
+- Inverted Cost $J(\vec(W),b)$ means that the derivative term is positive which as a result shows the learning curve going up with each iteration
+  
+  example :
+    1. $w_{1} = w_{1} + \alpha d_{1}$ (WRONG), curve goes up
+    2. $w_{1} = w_{1} - \alpha d_{1}$ (Correct), curve goes down  
+
+![image of Learning Rate Problems](images/Learning-Rate-Problems.png)
+
+With a small enough $\alpha$, $J(\vec{w}, b)$ should decrease on every iteration.
+
+### Solution to check if gradient descent not working
+
+- Set learning rate $\alpha$ to a very small number.
+- See if cost increases on every iteration.
+- If there's an increase in cost $J(\vec{W},b)$ then there's bug in code!!
+
+**Note:**
+
+Small learning rate $\alpha$ is for debugging purposes only, and not very effcient for training algorithms, and will take much more time to converge.
+
+### Values of $\alpha$ Learning Rate to choose
+
+- 0.001 ==> (3X) 0.003
+- 0.01 ==> (3X) 0.03
+- 0.1 ==> (3X) 0.03
+- 1
+
+**Steps:**
+
+- For each $\alpha$ run the gradient descent for handful of iterations and plot as chart "$J(\vec{W},b)$ vs. # Iterations"
+- After trying different $\alpha$ choose one that seem to decrease learning rate rapidly an consistently.
+- Slowly increase the $\alpha$ by 3X.
+- Try range of value for $\alpha$ is too small, and $\alpha$ too big.
+- Pick the largest possible $\alpha$, which is slightly smaller value that largest reasonable value  $\alpha_{min} \le \dotso \le \alpha_{best} \le \alpha_{max}$
+
+![image of Learning Rate To Try](images/Learning-Rate-To-Try.png
+)
+
+**Quesion:**
+You run gradient descent for 15 iterations with $\alpha$=0.3 and compute J(w)  after each iteration. You find that the value of J(w) increases over time.  How do you think you should adjust the learning rate $\alpha$?
+
+**Answer:**
+Try a smaller value of $\alpha$ (say $\alpha$=0.1).
+Since the cost function is increasing, we know that gradient descent is diverging, so we need a lower learning rate $\alpha$.
 
 
-## Topics to Learn
 
-- Standard Deviation $\sigma$
+## Topics to Learn Further
+
+- Standard Deviation $\sigma$, Normal Distribution
+- Partial Derivatives
+- 
