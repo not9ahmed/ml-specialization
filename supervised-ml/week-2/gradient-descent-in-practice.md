@@ -379,11 +379,46 @@ $x_{3} = x_{1} x_{2}$
 The new model will be
 $f_{\vec{W}, b} = w_{1} x_{2} + w_{2} x_{2} + b$
 
-![image of Learning Rate To Try](images/Feature-Engineering.png)
+![image of Feature Engineering](images/Feature-Engineering.png)
+
+
+## Polynomial Regression
+
+This will allow to fit curves non-linear functions to data. Instead of linear line like Linear Regression.
+
+
+**Size:** x
+
+**price:** y
+
+Will create a parabola, which will not fit the data:
+
+$f_{\vec{W}, b} = w_{1} x_{2} + w_{2} {x_{2}}^{2}+ b$
+
+
+Will create curve to that fit close to dara and will go up due to $x^{3}$
+$f_{\vec{W}, b} = w_{1} x_{2} + w_{2} {x_{2}}^{2} + {x_{3}}^{3} + b$
+
+The problem is that the features should be scaled in order to avoid having a very large number, which will cause problems for the gradient descent.
+
+![image of Polynomial Regression](images/Polynomial-Regression.png)
+
+
+<br/>
+
+We can also use the following model which is another set of features to choose to fit the dataset:
+
+size + $\sqrt{size}$
+
+$f_{\vec{W}, b} = w_{1} x_{2} + w_{2} \sqrt{x}+ b$
+
+
+![image of What Features To Use](images/What-Features-To-Use.png)
 
 
 ## Topics to Learn Further
 
 - Standard Deviation $\sigma$, Normal Distribution
 - Partial Derivatives
-- 
+- Sci-Kit Library
+- Know how to implement linear regression myself
