@@ -362,6 +362,25 @@ Try a smaller value of $\alpha$ (say $\alpha$=0.1).
 Since the cost function is increasing, we know that gradient descent is diverging, so we need a lower learning rate $\alpha$.
 
 
+## Feature Engineering
+
+Using intitution or knowledge of the problem to design new features, usually done by tranforming or combining features in order to make it easier for the learning model to make active predictions.  
+
+**Important:**
+
+Choice of feature have a huge impact on model performance, it is critical to make it run well.
+
+
+Instead of taking the frontage and depth as separate features, the 2 can be combined into single feature called $x_{3}$
+
+New feature:
+$x_{3} = x_{1} x_{2}$
+
+The new model will be
+$f_{\vec{W}, b} = w_{1} x_{2} + w_{2} x_{2} + b$
+
+![image of Learning Rate To Try](images/Feature-Engineering.png)
+
 
 ## Topics to Learn Further
 
