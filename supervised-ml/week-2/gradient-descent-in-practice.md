@@ -422,3 +422,4 @@ $f_{\vec{W}, b} = w_{1} x_{2} + w_{2} \sqrt{x}+ b$
 - Partial Derivatives
 - Sci-Kit Library
 - Know how to implement linear regression myself
+- Study the lab material in details, especially the functions
