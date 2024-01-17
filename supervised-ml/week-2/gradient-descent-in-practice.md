@@ -105,6 +105,8 @@ The following image showcases rescaling of features
 
 Which divides the feature by the max value, and range will be between 0 and 1.
 
+$$x_{i, scaled} = {x_{i}\over max}$$
+
 **Feature 1:**
 
 $300 \le x_{1} \le 2000$, where 2000 is the max
@@ -127,6 +129,8 @@ The below image show cases how feature scaling by max value work.
 It can distribute the number with range of 0 and 1
 ![image of Feature Scaling Example](images/Feature-Scaling-Example.png)
 
+---
+
 ### Feature Scaling By Mean Normalization
 
 Rescale the feature to be centered around 0, and range is within -1 and +1.
@@ -134,6 +138,8 @@ Rescale the feature to be centered around 0, and range is within -1 and +1.
 First find mean/average of a feature $\mu_{1}$
 
 $\mu$: Mean
+
+$$x_{i} = {{x_{i} - \mu_{i}} \over {max-min}}$$
 
 **Feature 1:**
 
@@ -176,6 +182,8 @@ $-0.46 \le x_{2,scaled} \le 0.54$
 Below is an image which show features scalling with mean normalization  method
 ![image of Feature Scaling with Mean Normalization Example](images/Feature-Scaling-Mean-Example.png)
 
+---
+
 ### Feature Scaling By Z-Score Normalization
 
 We need to calculate Standard Deviation $\sigma$ fo each feature in order to compute Z-Score normalization.
@@ -183,6 +191,8 @@ We need to calculate Standard Deviation $\sigma$ fo each feature in order to com
 Also, mean is needed to be calculated $\mu$
 
 $\sigma$: Standard Deviation, Bell Curve, Gaussian Distribution, Normal Distribution
+
+$$x_{i} = {{x_{i} - \mu_{i}} \over \sigma_{i}}$$
 
 **Feature 1:**
 
@@ -192,7 +202,7 @@ $\sigma_{1} = 450$
 
 $300 \le x_{1} \le 2000$
 
-$x_{1} = {{x_{1} - \mu_{1}} \over \sigma{1}}$
+$x_{1} = {{x_{1} - \mu_{1}} \over \sigma_{1}}$
 
 $x_{1} = {{x_{1} - 600} \over 450}$
 
@@ -212,7 +222,7 @@ $\sigma_{2} = 1.4$
 
 $0 \le x_{2} \le 5$
 
-$x_{2} = {{x_{2} - \mu_{2}} \over \sigma{2}}$
+$x_{2} = {{x_{2} - \mu_{2}} \over \sigma_{2}}$
 
 $x_{2} = {{x_{2} - 2.3} \over 1.4}$
 
