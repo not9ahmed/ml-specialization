@@ -1,12 +1,34 @@
 # Classification With Linear Regression
 
-## Motivations
+The model will produce a handful of possible output/numbers
 
-## Classification
+## Motivation
 
-Binary Classification
+**Examples of Classification Problems:**
 
-0 false/ negative class/ absence
-1 true/ positive class/ presence
+Question | Answer "$y$"
+- Is the email  spam or not? ---> yes/no
+- Is the transaction fraudluent or not? ---> yes/no
+- Is the tumor maligant? ---> yes/no
 
-the class naming depends on the question asked questioned
+
+**Notes:**
+
+- $y$ can only be one of ***two*** values
+- "binary classification"
+- class = category
+- The class naming depends on the question asked, so Context is important
+- The class does not mean that whether it's good or not
+
+**Another naming conventions which are useful for classfication:**
+
+- No  / 0 / false / negative class / absence
+- Yes / 1 / true  / positive class / presence
+
+![image of Classification Examples](images/Classification-Examples.png)
+
+
+
+
+
+![image of Classification Examples](images/Classification-Examples.png)
