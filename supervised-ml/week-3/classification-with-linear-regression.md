@@ -37,4 +37,20 @@ In the plot line, the y axis will be the class malignant?, and for the x axis wi
 
 Linear regression can be used for classification
 
-![image of Classification Examples](images/.png)
+**Thresshold**: can be used to represent a point which the classes are seperated
+
+if $f_{w,b}(x) < 0.5 \rArr \hat{y} = 0$
+
+if $f_{w,b}(x) \ge 0.5 \rArr \hat{y} = 1$
+
+**Problems:**
+
+- If a new example added which is very far then other correct classfication
+- The thresehold will be incorrect, as it will shift the entire model
+- The other examples for class 1 will be classfied as 0
+- Adding extra example to the rightshouldn't change any of conculsions on how to classify malignant vs benign tumors
+- Worse: missclassifed
+
+**Decision boundary:** is the vertical line that seperates to classed, and it is shifted due to the far right example.
+
+![image of Classification Examples](images/Linear-Regression-Problems.png)
