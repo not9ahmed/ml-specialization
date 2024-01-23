@@ -54,3 +54,7 @@ if $f_{w,b}(x) \ge 0.5 \rArr \hat{y} = 1$
 **Decision boundary:** is the vertical line that seperates to classed, and it is shifted due to the far right example.
 
 ![image of Classification Examples](images/Linear-Regression-Problems.png)
+
+
+**Topics to study:**
+-
