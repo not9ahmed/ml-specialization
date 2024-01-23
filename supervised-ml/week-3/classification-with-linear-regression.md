@@ -28,7 +28,13 @@ Question | Answer "$y$"
 ![image of Classification Examples](images/Classification-Examples.png)
 
 
+<br/>
 
+In the plot line, the y axis will be the class malignant?, and for the x axis will be tumor size
 
+- 0 will represent no
+- 1 will represent yes.
 
-![image of Classification Examples](images/Classification-Examples.png)
+Linear regression can be used for classification
+
+![image of Classification Examples](images/.png)
