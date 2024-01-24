@@ -56,5 +56,64 @@ if $f_{w,b}(x) \ge 0.5 \rArr \hat{y} = 1$
 ![image of Classification Examples](images/Linear-Regression-Problems.png)
 
 
+## Logistic Regression
+
+One of the most common classifcation algorithm
+
+Want output between 0 and 1.
+
+
+**Sigmoid Function (Logistic Function)**  
+- It takes on negative and positive values
+- The label of horizontal axes is **Z**
+- Outputs values between 0 and 1
+
+The sigmoid function is the following
+$$g(z) = { 1 \over {1 + e^{-z}}}$$
+
+$$0 < g(z)< 1$$
+
+where $e = 2.71$
+
+If $z = 100 => g(z) \approx {1 \over 1} \approx 1$
+
+If $z = -100 => g(z) \approx {1 \over big} \approx 0$
+
+If $z = 0 => g(z) = {1 \over 1+1} = 0.5$
+
+So that's why sigmoid function outputs values within 0 and 1
+
+
+The following image showcases the Logistic Regression compared to the Linear Regression.
+
+Where in the Linear Regression the curve is only in the positive x-axis
+![image of Logistic Regression](images/Logistic-Regression.png)
+
+
+
+### Sigmoid Function Formula
+
+$$f_{\vec{w},b}(\vec{X})$$
+
+$$z = \vec{W} \cdot \vec{X} + b$$
+
+$$g(z)$$
+
+$$g(\vec{W} \cdot \vec{X} + b)$$
+
+$$g(z) = {1 \over {1 + e^{-z}}}$$
+
+The following image showcases the formula for the sigmoid function, and it can be seen that it follows the same steps as the linear regression, but it takes the result of the prediction and uses the $g(z)$ formula
+![image of Logistic Regression Formula](images/Logistic-Regression-Formula.png)
+
+
+### Interpretation of Logistic Regression Output
+
+$$f_{\vec{w},b}(\vec{X}) = {1 \over {1 + e^{-(\vec{W} \cdot \vec{X} + b)}}}$$
+
+It outputs the probability that class/label is 1, given certain label x.
+
+
+
 **Topics to study:**
 -
