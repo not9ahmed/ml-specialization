@@ -113,6 +113,32 @@ $$f_{\vec{w},b}(\vec{X}) = {1 \over {1 + e^{-(\vec{W} \cdot \vec{X} + b)}}}$$
 
 It outputs the probability that class/label is 1, given certain label x.
 
+**Example:**
+- $x$ is "tumor size"
+- $y$ is 0 (not malignant)
+- or 1 (malignant)
+
+$f_{\vec{w},b}(\vec{X}) = 0.7$
+
+The model predicts that there is 70% chance that y is 1 (tumor is malignant)
+
+$P(y = 0) + P(y = 1) = 1$
+
+
+$P(y = 1) => P(1)$
+
+$f_{\vec{w},b}(\vec{X}) = P(y = 1 | \vec{X};\vec{W},b)$
+
+**Translation:** P of y=1 given the input features $\vec{x}$ and with parameters $\vec{w}, b$
+
+**";"(semicolon):** denotes that $w,b$  are parameters that affect the computation of what is the probability of y being equal to 1 given the input feature $x$
+
+Probability that $y$ is 1, given input $\vec{X}$, parameters $\vec{W},b$
+
+
+This following questions emphasizes that negative values lead to $g(z)$ being a negative number
+![image of Logistic Regression Question](images/Logistic-Regression-Question.png)
+
 
 
 **Topics to study:**
