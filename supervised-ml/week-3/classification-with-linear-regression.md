@@ -141,5 +141,104 @@ This following questions emphasizes that negative values lead to $g(z)$ being a 
 
 
 
+## Decision Boundary
+
+### Sigmoid Function Formula
+
+$$f_{\vec{W},b}(\vec{X}) = g(\vec{W} \cdot \vec{X} + b) = {1 \over {1 + e^{-(\vec{W} \cdot \vec{X} + b)}}}$$
+
+Where
+$$g(\vec{W} \cdot \vec{X} + b) = g(Z)$$
+
+The probability of $y=1$ given the parameters of $\vec{W},b$ ==> 0.7 0.3
+$$= P(y = 1|x;\vec{W},b)$$ 
+
+**0 or 1?**  
+I have to select a threshold which will be basis of choosing the class
+
+Is $f_{\vec{W},b}(\vec{X}) \ge 0.5$ ? (0,5 is the threshold)  
+
+- Yes: $\hat{y} = 1$
+
+    - When is $f_{\vec{W},b}(\vec{X}) \ge 0.5$ ?  
+        $g(Z) \ge 0.5$  
+        $z \ge 0$  
+        $\vec{W} \cdot \vec{X} + b \ge 0$  
+        $\hat{y} = 1$
+
+- No: $\hat{y} = 0$
+    - $\vec{W} \cdot \vec{X} + b \le 0$  
+        $\hat{y} = 0$
+
+
+The below image shows the conclusions and step which are followed to set the boundaries
+![image of Sigmoid Function Formula](images/Sigmoid-Function-Formula.png)
+
+
+
+$$f_{\vec{W}, b} = g(Z) = g(w_{1} x_{1} + w_{2} x_{2} + b)$$
+
+- $w_{1} = 1$
+- $w_{2} = 1$
+- $b = -3$
+
+
+### Decision Boundary Example
+
+**Decision Boundary** is the line where it neutral about the y=0 or y=1
+
+$z = \vec{W} + \vec{X} + b = 0$  
+$z = \vec{W} + \vec{X} - 3 = 0$, subtitute  
+$z = \vec{W} + \vec{X} = 3$  
+- this will be represent as a straight line that seperates the 2 classes
+- it's called the Decision Boundary
+- The boundary line is when
+  - $w_{1} = 1$
+  - $w_{2} = 1$
+  - $b = -3$
+
+The following image showcases the boundary line that seperates the 2 classes
+![image of Decision Boundary Example](images/Decision-Boundary-Example.png)
+
+### Non-Linear Decision Boundary
+
+$f_{w,b}(\hat{X}) = g(Z) = g(w_{1} x_{1}^{2} + w_{2} x_{2}^{2} + b)$
+
+- $w_{1} = 1$
+- $w_{2} = 1$
+- $b = -1$
+
+Decision Boundary:
+
+$z =  x_{1}^{2} +  x_{2}^{2}- 1 = 0$  
+$z =  x_{1}^{2} +  x_{2}^{2} = 1$, equation of a circle
+
+
+In case of  
+1. $x_{1}^{2} +  x_{2}^{2} \ge 1$  
+    $\hat{y} = 1$
+
+2. $x_{1}^{2} +  x_{2}^{2} < 1$  
+    $\hat{y} = 0$
+
+The image below shows a non linear decision boundary which takes the shape of circle, and here the features have been engineered to be $x^{2}$
+![image of Non Linear Decision 1](images/Non-Linear-Decision-1.png)
+
+
+Logistic Regression can fit a lot of complex non linear data by using higher order of terms.
+
+$$f_{\vec{W},b}(\vec{X}) = g(Z) = g(w_{1} x_{1} + w_{2} x_{2} + w_{3} x_{1}^{2} + w_{4} x_{2} + w_{5} x_{2}^{2})$$
+
+
+This implementation of linear regression will predict:
+
+- $\hat{y} = 1$  inside the shape
+- $\hat{y} = 0$ outside the shape
+
+If no higher order polynomial are used then the decision boundary will always be linear
+
+![image of Non Linear Decision 2](images/Non-Linear-Decision-2.png)
+
+
 **Topics to study:**
 -
