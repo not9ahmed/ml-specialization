@@ -1,4 +1,4 @@
-# Classification With Linear Regression
+# Classification With Logistic Regression
 
 The model will produce a handful of possible output/numbers
 
