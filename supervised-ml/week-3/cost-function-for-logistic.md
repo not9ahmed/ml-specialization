@@ -167,8 +167,8 @@ $= -\log(f(\vec{X}))$
 $L(f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = -0 (\dotso) - (1-0)\log (1 - f_{{w},b}( \mathbf{\vec{X}}^{(i)} ) )$  
 $= -\log(1-f(\vec{X}))$
 
-The below image showcases the simpified cist function, and how substituting the values is equivalent to the above formula.
-![image of Simplified Cost Function](images/Simplified-Cost-Function.png)
+The below image showcases the simpified loss function, and how substituting the values is equivalent to the above formula.
+![image of Simplified Loss Function](images/Simplified-Loss-Function.png)
 
 
 ## Simplified Cost Function
@@ -203,3 +203,6 @@ $$
 $$
 
 The formula was derivied from Statistics, Maximum Likelihood Estimation, and it's used to efficiently find parameters for different models. 
+
+The below image showcase the steps which lead to the simplified cost function, and it was taken from the loss function. The loss function is for single example, but the cost function is for the entire training examples/set.
+![image of Simplified Cost Function](images/Simplified-Cost-Function.png)
