@@ -130,3 +130,76 @@ The formula for cost fucntion $J(\vec{W}, b)$ is similar to cost in linear regre
 The non-linear nature of the model that results in a "wiggly", non-convex cost function with many potential local minimum.
 
 ***Explaination:*** If using the mean squared error for logistic regression, the cost function is "non-convex", so it's more difficult for gradient descent to find an optimal value for the parameters w and b.
+
+
+## Simplified Lost Function
+
+$$
+  L(f_{\mathbf{\vec{W}},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = \begin{cases}
+    - \log\left(f_{\mathbf{\vec{W}},b}\left( \mathbf{\vec{X}}^{(i)} \right) \right) & \text{if $y^{(i)}=1$}\\
+    - \log \left( 1 - f_{\mathbf{\vec{W}},b}\left( \mathbf{\vec{X}}^{(i)} \right) \right) & \text{if $y^{(i)}=0$}
+  \end{cases}
+$$
+
+
+$y$ is either 0 or 1, and it cannot be other values.
+
+Simplier Form of the Lost Function, and it's completely equivalent
+
+$$
+  L(f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = 
+    - y^{(i)}\log(f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)}))
+    - (1-y^{(i)})\log ( 1 - f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)} ) )
+$$
+
+<br/>
+
+### Proof of substituting the $y^{(i)}$ values:
+
+**if $y^{(i)} = 1:$**
+
+$L(f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = -1 \log(f(\vec{X})) - (1-1) \dotso$, the rest will be canceled  
+$= -\log(f(\vec{X}))$
+
+
+**if $y^{(i)} = 0:$**
+
+$L(f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = -0 (\dotso) - (1-0)\log (1 - f_{{w},b}( \mathbf{\vec{X}}^{(i)} ) )$  
+$= -\log(1-f(\vec{X}))$
+
+The below image showcases the simpified cist function, and how substituting the values is equivalent to the above formula.
+![image of Simplified Cost Function](images/Simplified-Cost-Function.png)
+
+
+## Simplified Cost Function
+
+**Loss**  
+It has the shape of Convex (Single Global Minimum)
+$$
+  L(f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)}), y^{(i)}) = 
+    - y^{(i)}\log(f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)}))
+    - (1-y^{(i)})\log ( 1 - f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)} ) )
+$$
+
+
+**Cost**  
+By substituting the loss function for logistic regression from above to below
+$$
+  J(\vec{W}, b) = 
+  {1 \over m}
+  \sum_{i=1}^{m}
+  [L(f_{{w},b} ({\vec{X}}^{(i)}), y^{(i)})]
+$$
+
+
+**The Simplified Cost Function**  
+The "-" will be taken outside
+$$
+    = 
+  -{1 \over m}
+  \sum_{i=1}^{m}
+  [- y^{(i)}\log(f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)}))
+    - (1-y^{(i)})\log ( 1 - f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)} ) )]
+$$
+
+The formula was derivied from Statistics, Maximum Likelihood Estimation, and it's used to efficiently find parameters for different models. 
