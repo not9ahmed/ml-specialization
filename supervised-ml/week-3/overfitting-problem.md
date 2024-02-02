@@ -137,9 +137,9 @@ The image below showcases how feature selection can overcome the problem of over
 #### Option 3: Regularization
 **Reduce the size of parameters**
 
-Encourage the learning algorithm to shrink the parameters value swithout demanding the parameters to be set 0.
+Encourages the learning algorithm to shrink the parameters value swithout demanding the parameters to be set 0.
 
-Keepss all the features, but prevent the features from having overly large effect.
+Keeps all the features, but prevent the features from having overly large effect.
 
 Smaller $w_{j}$ paramater $w_{1} \dotso w_{n}$
 
@@ -166,6 +166,6 @@ The image below showcases how regulatization can overall improve the model overf
 ![image of Addressing Overfitting Summary](images/Addressing-Overfitting-Summary.png)
 
 
-
+## Cost Function with Regularization
 
 ## Topics to Learn
