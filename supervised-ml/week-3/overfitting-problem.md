@@ -168,4 +168,134 @@ The image below showcases how regulatization can overall improve the model overf
 
 ## Cost Function with Regularization
 
+### Intitution
+
+Make $w_{3}$, $w_{4}$ really small $(\approx 0)$
+
+$min_{\vec{W},b} {1 \over 2m} \sum_{i=1}^{m} (f_{\vec{W},b}(\vec{X}^{(i)}) - y^{(i)})^{2}$
+
+And I want to modify the cost function to fit the data by adding 
+$+ 1000 w_{3}^{2} + 1000 w_{4}^{2}$
+
+$min_{\vec{W},b} {1 \over 2m} \sum_{i=1}^{m} (f_{\vec{W},b}(\vec{X}^{(i)}) - y^{(i)})^{2} + 1000 w_{3}^{2} + 1000 w_{4}^{2}$
+
+The model will be penelized/regularized if $w_{3}$ and $w_{4}$ are large
+
+Because if I want to minimze the function $w_{3}$ and $w_{4}$ has to be small!!
+
+The only way is to make $w_{3}, w_{4}$ small:
+
+- $w_{3} = 0.001$
+- $w_{4} = 0.002$
+
+The result $w_{3}, w_{4}$ are close to 0, which is mean the two terms are somewhat canceled.
+
+The fit to data much close to quadratic, but with small effect from $x^{3}, x^{4}$
+
+The below image showcases how the regularization is done, and how little it effects the model when it's minimized.
+![Image of the regulaization inituition](images/Regularization-Intitution.png)
+
+
+### Regualrization
+
+**Having small $w_{1}, w_{2}, w_{3},\dotso,w_{n},b$**
+
+**Results:**  
+- Simpler model
+- Less likely to overfit
+
+In the previous example we have penelized  
+$w_{3} \approx 0$  
+$w_{4} \approx 0$
+
+Below is an example of housing price dataset with 100 features.
+
+We have a lot of features, but we do not know which feature to penelize, so we penelize all the features/ $w_{j}$ parameters
+
+Results smoother, less wiggly, and not prone to overfitting.
+
+$n$ features, where $n= 100$
+
+$w_{1}, w_{2}, \dotso , w_{100}, b$
+
+<br/>
+
+**To penelize all the parameters, we use the following formula:**
+
+**Regularization Term is:** $+ {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}$"
+
+
+$$
+J(\vec{W},b) =
+{1 \over 2m} \sum_{i=0}^{m} (f_{\vec{w},b}(\vec{x}^{(i)})
+- y^{(i)})^{2} + {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
+$$
+
+**$\lambda$:** Lambda, Regularization parameter  
+$\lambda > 0$  
+Similar to choosing learning rate $\alpha$, I now can choose lambda $\lambda$
+
+$\lambda$ is divided by 2m, by scalling both terms the same way:
+- makes choosing good values $\lambda$ easier
+- Even if training set grows $n$ is the same value for $\lambda$ still works
+
+$b$ is mostly not used in the regularization, but when used it looks like this:
+
+$$
+J(\vec{W},b) =
+{1 \over 2m} \sum_{i=0}^{m} (f_{\vec{w},b}(\vec{x}^{(i)})
+- y^{(i)})^{2} + {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
++ {\lambda \over 2m}b^{2}
+$$
+
+The below image showcases the regularizations term for $w_{j}$ and $b$, they both introduce new value named $\lambda$
+![Image of the regulaization terms](images/Regularization-Terms.png)
+
+
+### Regualrization Continued
+
+$$
+min_{\vec{W},b}
+J(\vec{W},b) =
+min_{\vec{W},b}
+({1 \over 2m} \sum_{i=0}^{m} (f_{\vec{w},b}(\vec{x}^{(i)})
+- y^{(i)})^{2} + {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
++ {\lambda \over 2m}b^{2})
+$$
+
+The cost function can be define as (1) + (2):  
+- The (1) is the mean squared error, the goal to fit the data
+- The (2) is the regularization term for $w_{j}$, the goal to keep $w_{j}$ small
+
+
+$\lambda$ values specifies relative importance/tradeoff on how to balance the 2 goals:
+- Mean Squared Error: Fit Data
+- Keep $w_{j}$ small
+
+<br/>
+
+**Example:** Choose $\lambda = 10^{10}$
+
+$f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x^{2} + w_{3} x^{3} + w_{4} x^{4} + b$
+
+$f_{\vec{W},b} (\vec{X}) = 0 + 0 + 0 + 0 + b$
+
+$f_{\vec{W},b} (\vec{X}) = b$ => Underfit
+
+and if $\lambda =0$ => it will Overfit!
+
+
+In the following image we can observe thet there are now 2 terms in the cost function $J(\vec{W},b)$ which are the mean squared error, and regularization term. Choosing the right $\lambda$ is essential in order avoid the overfitting problem.
+![image of regularization lambda](images/Regularization-Lambda.png)
+
+
+**Question:** For a model that includes the regularization parameter $\lambda$ (lambda), increasing $\lambda$ will tend to…
+
+**Answer:**  
+Decrease the size of parameters $w_{1}, w_{2}, \dotso, w_{n}$, 
+
+**Explaination:**  
+Increasing the regularization parameter 
+$\lambda$ lambda reduces overfitting by reducing the size of the parameters. For some parameters that are near zero, this reduces the effect of the associated features.
+
 ## Topics to Learn
