@@ -414,7 +414,107 @@ The below image showcases how  gradient descent is implemented with the regulari
 ![image of implementing gradient descent](images/Implementing-Gradient-Descent.png)
 
 
+**The below notes are optional, and Maths**
 
+
+#### By rearranging the formula
+
+$$
+W_{j} = 1 w_{j}
+- \alpha {\lambda \over m} w_{j}
+- \alpha {
+    {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+    - y^{(i)}) x_{j}^{(i)}
+}
+$$
+
+
+
+$$
+W_{j} = w_{j} {
+   (1 - \alpha {\lambda \over m})
+}
+- \alpha {
+    {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+    - y^{(i)}) x_{j}^{(i)}
+}
+$$
+Where the second term $\alpha{1 \over m}$ is the usual update which was covered before using regularization.
+
+The term $"w_{j} {(1 - \alpha {\lambda \over m})}-"$ has been added to the original update term.
+
+
+**Example of values of the parameters $\lambda, \alpha, m$ where $m$ is the number of examples:**
+
+- $\lambda = 1$
+- $\alpha = 0.01$
+- $m =50$
+
+$\alpha {\lambda \over m} = 0.01 {1 \over 50} = 0.0002$
+
+$w_{j}(1 - \alpha {\lambda \over m} ) = w_{j}(1 - 0.0002) = w_{j}(0.9998)$
+
+So on every iteration I'm taking the $w_{j}$ and multiplying it by 0.9998, before carrying the usual update.
+
+This will resuling in shrinking the value of $w_{j}$ just by little bit (number slighlty less than 1).
+
+
+The below image depcicts a simplification of the gradient descent updating terms. The final formula now has the regularization term in the start, and then subtracted by the usual update term.
+![image of implementing gradient descent with simplified terms](images/Implementing-Gradient-Descent-Simplified.png)
+
+
+### How we get the derivative term (Optional)
+
+$$
+{\partial \over {\partial w_{j}}} J(\vec{W},b) =
+{\partial \over {\partial w_{j}}} \biggl[
+   {1 \over {2m}}
+   {\sum_{i=1}^{m} (f_{\vec{W},b} (\vec{X}^{(i)})
+   - y^{(i)})^{2}
+   + {\lambda \over 2m}
+   {\sum_{j=1}^{n} w_{j}^{2}}
+   }
+
+\biggr]
+$$
+
+Where $f_{\vec{W},b} (\vec{X}^{(i)})$ is defined as $\vec{W} \cdot \vec{X}^{(i)} + b$
+
+By the rules of calculas the derivatives look like this:
+
+$$
+   = {1 \over 2m} \sum_{i=1}^{m} 
+   \biggl[
+   (\vec{W} \cdot \vec{X}^{(i)} + b - y^{(i)}) 2 x_{j}^{(i)}
+   \biggr]
+   + {\lambda \over 2m} 2 w_{j}
+$$
+- Now it does not have the summation $\sum_{j=1}^{n}$ term for the regularization term.
+- The 2 will be canceled out in the 2 terms.
+
+
+The result now looks like this
+$$
+   = {1 \over m} \sum_{i=1}^{m} 
+   \biggl[
+   (\vec{W} \cdot \vec{X}^{(i)} + b - y^{(i)}) x_{j}^{(i)}
+   \biggr]
+   + {\lambda \over m} w_{j}
+$$
+
+
+Now we can substitute the $f_{\vec{W},b} (\vec{X}^{(i)})$ term again, and it should be the following formula
+$$
+   = {1 \over m} \sum_{i=1}^{m} 
+   \biggl[
+   (f_{\vec{W},b} (\vec{X}^{(i)}) - y^{(i)}) x_{j}^{(i)}
+   \biggr]
+   + {\lambda \over m} w_{j}
+$$
+
+The term above is used for computing the gradient for regularized linear regression.
+
+It can reduce the overfitting, on relatiely small dataset.
 
 
 ## Topics to Learn
