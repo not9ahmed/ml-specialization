@@ -241,10 +241,15 @@ $\lambda$ is divided by 2m, by scalling both terms the same way:
 
 $b$ is mostly not used in the regularization, but when used it looks like this:
 
+**$b$ Regularization Term:**
+${\lambda \over 2m}b^{2}$
+
 $$
 J(\vec{W},b) =
-{1 \over 2m} \sum_{i=0}^{m} (f_{\vec{w},b}(\vec{x}^{(i)})
-- y^{(i)})^{2} + {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
+{1 \over 2m}
+\sum_{i=0}^{m} (f_{\vec{w},b}(\vec{x}^{(i)})
+- y^{(i)})^{2}
++ {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
 + {\lambda \over 2m}b^{2}
 $$
 
@@ -298,4 +303,120 @@ Decrease the size of parameters $w_{1}, w_{2}, \dotso, w_{n}$,
 Increasing the regularization parameter 
 $\lambda$ lambda reduces overfitting by reducing the size of the parameters. For some parameters that are near zero, this reduces the effect of the associated features.
 
+
+## Regularized Linear Regression
+
+$$
+min_{\vec{W},b} J(\vec{W},b) =
+min_{\vec{W},b}(
+{1 \over 2m}
+{
+   \sum_{i=1}^{m} (f_{\vec{W},b} (\vec{X}^{(i)})
+   - y^{(i)})^{2}
+}
++ {\lambda \over 2m}
+{
+   \sum_{j=1}^{n} {W_{j}^{2}}
+})
+$$
+
+$\lambda$:  Regularization Parameter
+
+
+$j = 1 \dotso n$
+
+repeat {
+$$
+w_{j} = w_{j} - \alpha {
+    {\partial}
+    \over
+    {\partial w_{j}}
+    }J(\vec{W}, b)
+    
+    \leftarrow (1)
+$$
+
+
+$$
+b = b - \alpha {
+    {\partial}
+    \over
+    {\partial b}
+    }J(\vec{W}, b)
+
+    \leftarrow (2)
+$$
+} Simultaneous updates
+
+
+The updated paraemeters for regularized linear regression are the same, but the cost is defined differently, due to the regularization term!
+
+
+(1)
+$$
+    {
+      {\partial}
+      \over{
+         \partial w_{j}
+         }
+    }J(\vec{W}, b)
+    = {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+    - y^{(i)}) x_{j}^{(i)}
+    + {\lambda \over m} W_{j}
+$$
+The regulariztion deriviate term has been added $(+ {\lambda \over m} W_{j})$ 
+
+
+(2)
+$$
+    {
+      {\partial}
+      \over
+      {\partial b}
+    }J(\vec{W}, b)
+    = {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) - y^{(i)})
+$$
+We don't have to regularize $b$
+
+
+The below image showcases ho the gradient have changes slightly to accommodate the changes in the cost function, which resulted in adding the term $(+{\lambda \over m} W_{j})$
+![image of the regualized linear regression](images/Regularized-Linear-Regression.png)
+
+
+
+### Implementing Gradient Descent
+
+repeat {
+$$
+w_{j} = w_{j}
+   - \alpha {
+   \Biggl[
+    {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+    - y^{(i)}) x_{j}^{(i)}
+    + {\lambda \over m} W_{j}
+   \Biggr]
+}
+$$
+
+
+$$
+b = b - \alpha {
+      \Biggl[
+      {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+      - y^{(i)})
+      \Biggr]
+   }
+$$
+} Simultaneous updates for all these parameters
+
+
+The below image showcases how  gradient descent is implemented with the regularized term for $W_{j}$, and how the new partial derivative of $J(\vec{W},b)$ is substituted in the gradient descent. The new term which was added is $(+ {\lambda \over m} W_{j})$
+![image of implementing gradient descent](images/Implementing-Gradient-Descent.png)
+
+
+
+
+
 ## Topics to Learn
+
+- 
