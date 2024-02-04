@@ -649,6 +649,19 @@ We don't have to regularize $b$
 
 
 
+The below image displays how we are updating the parameters in a regularized logistic regression.  
+Only the following term $(+ {\lambda \over m} W_{j})$ has been added to the $w_{j}$ gradient descent term.  
+Plus, the key difference here and regularized linear regression is that $f_{\vec{W},b} (\vec{X}^{(i)})$ being the sigmoid/logistic regression/$g(z)$.
+![image of regularized logistic function with gradient descent](images/Regularized-Logistic-Function-Continued.png)
+
+<br/>
+
+The below image gives a question on the key difference between regularized linear regression and regularized logistic regression.
+![image of video question on regularized logistic regression](images/Regularized-Logistic-Regression-Question.png)
+
+
+
+
 
 ## Topics to Learn
 
