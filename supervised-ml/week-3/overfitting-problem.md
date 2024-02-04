@@ -517,6 +517,139 @@ The term above is used for computing the gradient for regularized linear regress
 It can reduce the overfitting, on relatiely small dataset.
 
 
+## Regularized Logistic Regression
+
+High order polynomial that will be passed to sigmoid function
+$$
+z = w_{1} x_{1} + w_{2} x_{2} + w_{3} x_{1}^{2} x_{2}
++ w_{4} x_{1}^{2} x_{2}^{2} + w_{5} x_{1}^{2} x_{2}^{3} + \dots
++ b
+$$
+
+$$
+f_{\vec{W},b} = {1 \over {1 + e^{-z}}}
+$$
+
+The decision boundary will end up being overly complex.
+
+Cost function:
+
+$$
+J(\vec{W},b) = 
+-{1 \over m}
+\sum_{i=1}^{m}
+   \Biggl[- y^{(i)}
+   \log
+      \biggl(
+      f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)})
+      \biggr)
+   - (1-y^{(i)})
+   \log
+      \biggl(1 - f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)} ) \biggr)
+   \Biggr]
++ {\lambda \over 2m} \sum_{j=1}^{n} {w_{j}^2}
+$$
+
+
+Where the new add $+ {\lambda \over 2m} \sum_{j=1}^{n} {w_{j}^2}$
+is the regularization term.
+
+
+$min_{\vec{W},b} \rightarrow w_{j} \downarrow$ prevents the parameters $w_{1}, w_{2}, \dotso w_{n}$ from being too large.
+
+Even though I'm fitting high order poly with a lot of parameter, the decision boundary still looks simpler, and generalizes to new examples.
+
+
+The below image showcases the regularized logistic regression cost function which not it contains the term $+ {\lambda \over 2m} \sum_{j=1}^{n} {w_{j}^2}$, and it help preventing the decision boundary from being very complex!
+![image of regularized logistic regression](images/Regularized-Logistic-Regression.png)
+
+<br/>
+
+## Regularized Logistic Regression - Gradient Descent
+
+
+Cost function:
+
+$$
+min_{\vec{W},b}
+J(\vec{W},b) = 
+-{1 \over m}
+\sum_{i=1}^{m}
+   \Biggl[- y^{(i)}
+   \log
+      \biggl(
+      f_{\mathbf{w},b}(\mathbf{\vec{X}}^{(i)})
+      \biggr)
+   - (1-y^{(i)})
+   \log
+      \biggl(1 - f_{\mathbf{w},b}( \mathbf{\vec{X}}^{(i)} ) \biggr)
+   \Biggr]
++ {\lambda \over 2m} \sum_{j=1}^{n} {w_{j}^2}
+$$
+
+
+**(Same as updated rules for the Regularized Linear Regression)**  
+$j = 1 \dotso n$
+
+repeat {
+$$
+w_{j} = w_{j} - \alpha {
+    {\partial}
+    \over
+    {\partial w_{j}}
+    }J(\vec{W}, b)
+    
+    \leftarrow (1)
+$$
+
+
+$$
+b = b - \alpha {
+    {\partial}
+    \over
+    {\partial b}
+    }J(\vec{W}, b)
+
+    \leftarrow (2)
+$$
+} Simultaneous updates
+
+
+The updated paraemeters for regularized logistic regression are the same as linear regression, but the cost is defined differently, due to the regularization term!
+
+**(Same as linear regression)**
+
+However, the term $f_{\vec{W},b} (\vec{X}^{(i)})$ is using logistic regression/ sigmoid function/$g(z)$
+
+(1)
+$$
+    {
+      {\partial}
+      \over{
+         \partial w_{j}
+         }
+    }J(\vec{W}, b)
+    = {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
+    - y^{(i)}) x_{j}^{(i)}
+    + {\lambda \over m} W_{j}
+$$
+The regulariztion deriviate term has been added $(+ {\lambda \over m} W_{j})$  
+
+
+(2)
+$$
+    {
+      {\partial}
+      \over
+      {\partial b}
+    }J(\vec{W}, b)
+    = {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) - y^{(i)})
+$$
+We don't have to regularize $b$
+
+
+
+
 ## Topics to Learn
 
 - 

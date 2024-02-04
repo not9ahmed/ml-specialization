@@ -192,7 +192,7 @@ $$
 $$
 
 
-**The Simplified Cost Function**  
+## The Final Simplified Cost Function
 The "-" will be taken outside
 $$
     = 
