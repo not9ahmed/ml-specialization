@@ -22,4 +22,4 @@ Decision Trees
 
 
 The below image showcases the summary of the advanced learning algorithms summary
-![image of the advanced learning algorithms summary](Advanced-Learning-Algos-Guide.png)
+![image of the advanced learning algorithms summary](images/Advanced-Learning-Algos-Guide.png)
