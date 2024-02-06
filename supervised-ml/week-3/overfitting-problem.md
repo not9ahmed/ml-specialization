@@ -414,13 +414,12 @@ The below image showcases how  gradient descent is implemented with the regulari
 ![image of implementing gradient descent](images/Implementing-Gradient-Descent.png)
 
 
-**The below notes are optional, and Maths**
+### The below notes are the Maths behind Gradient Descent with Regularization Term formula:
 
 
-#### By rearranging the formula
-
+By rearranging the formula, and moving the regularization term to be after the old $w_{j}$ term
 $$
-W_{j} = 1 w_{j}
+w_{j} = w_{j}
 - \alpha {\lambda \over m} w_{j}
 - \alpha {
     {1 \over m} \sum_{i=1}^{m} (f_{\vec{W}, b} (\vec{X}^{(i)}) 
@@ -428,10 +427,9 @@ W_{j} = 1 w_{j}
 }
 $$
 
-
-
+Then taking $W_{j}$ as a common factor from the first part, the fomrula should be the following
 $$
-W_{j} = w_{j} {
+w_{j} = w_{j} {
    (1 - \alpha {\lambda \over m})
 }
 - \alpha {
@@ -463,7 +461,7 @@ The below image depcicts a simplification of the gradient descent updating terms
 ![image of implementing gradient descent with simplified terms](images/Implementing-Gradient-Descent-Simplified.png)
 
 
-### How we get the derivative term (Optional)
+### How we Got the Derivative Term
 
 $$
 {\partial \over {\partial w_{j}}} J(\vec{W},b) =
@@ -532,8 +530,7 @@ $$
 
 The decision boundary will end up being overly complex.
 
-Cost function:
-
+**Cost function:**
 $$
 J(\vec{W},b) = 
 -{1 \over m}
@@ -568,8 +565,7 @@ The below image showcases the regularized logistic regression cost function whic
 ## Regularized Logistic Regression - Gradient Descent
 
 
-Cost function:
-
+**Cost function:**
 $$
 min_{\vec{W},b}
 J(\vec{W},b) = 
@@ -649,9 +645,9 @@ We don't have to regularize $b$
 
 
 
-The below image displays how we are updating the parameters in a regularized logistic regression.  
-Only the following term $(+ {\lambda \over m} W_{j})$ has been added to the $w_{j}$ gradient descent term.  
-Plus, the key difference here and regularized linear regression is that $f_{\vec{W},b} (\vec{X}^{(i)})$ being the sigmoid/logistic regression/$g(z)$.
+The below image displays how we are updating the parameters in a regularized logistic regression:
+- Only the following term $(+ {\lambda \over m} W_{j})$ has been added to the $w_{j}$ gradient descent term.  
+- Plus, the key difference here and regularized linear regression is that $f_{\vec{W},b} (\vec{X}^{(i)})$ being the sigmoid/logistic regression/$g(z)$.
 ![image of regularized logistic function with gradient descent](images/Regularized-Logistic-Function-Continued.png)
 
 <br/>
