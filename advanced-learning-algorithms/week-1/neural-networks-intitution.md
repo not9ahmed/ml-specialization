@@ -114,20 +114,34 @@ The activation values represented as a vector $\vec{a}$ and will be feed to outp
 **Why Is It called Hidden Layer?**
 In training set I can observe $(x, y)$ values so I know correct values.
 
-However, for the values $(x, y)$ in the hidden layer affordability, awareness, preceived quality I don't know the actual values.
+- However, for the values $(x, y)$ in the hidden layer affordability, awareness, preceived quality I don't know the actual values.
 
+- Logistic Regression unit that takes as input affordability, awareness, preceived quality and using these 3 better features to estimate the probability of product being topseller.
 
+- Logistic Regression, but it's a version that can learn its own features that makes it easier to make accurate prediction.
 
-log reg unit 
+- Neural Network it can learn it's own features, and it makes it so powerful!!
 
+- No need find the actual features in the hidden layer, which is the feature engineering part that we previously done.
 
-log reg but version that can learn its own features that makes it easier to make prediction.
+<br/>
 
-
-
-The following image showcases how construct a neural network, with each neuron being linked to a certain feature. 
+The following image showcases how we construct a neural network, with each neuron being linked to a certain feature. 
 ![image of simple nn example](images/Simple-NN-Example.png)
 
+<br/>
 
+### Multiple Hidden Layers "Multi Layer Perceptron"
+
+The most common questions when building a neural network is the following:
+**(Neural Network Architecture)**
+
+1. How many Hidden Layers I want?
+2. How many neurons I need in each hidden layer?
+
+**Choosing the right numbers can have impact on the performance!**
+
+The below image illustrates an example of multi hidden layers neural neural networks, and it's refered to as multi layer perceptron.
+![image of multi hidden layers](images/Multi-Hidden-Layers.png)
 
 
