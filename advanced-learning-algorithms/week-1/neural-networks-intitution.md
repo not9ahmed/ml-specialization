@@ -159,7 +159,7 @@ Neural Networks takes picture, and outputs identity of the person
 - The feature vector $\vec{X}$ it will be milion numbers
 
 
-**When a Neueral Network trains on a lot of images of faces, what features are the hidden layer will compute?**
+**When a Neural Network trains on a lot of images of faces, what features are the hidden layer will compute?**
 
 1. First hidden layers will look for short line or edges
 
@@ -183,9 +183,17 @@ Activation are high level features
 
 ### Car Classification
 
+For a problem of car classifcation the same princple can be applied as the face recognition. However, the features will vary in the next layers
+
+1. First layer will detect line and edges.
+
+2. Second layer will detect part of car.
+
+3. Third layer will detect car shapes.
 
 
-
+The following image illustrates how neural network can detect car based on the same princples as face recognition, but with different set of feature to be discovered in the next hidden layers.
+![image of car classifcation](images/Car-Classification.png)
 
 
 
