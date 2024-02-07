@@ -144,4 +144,49 @@ The most common questions when building a neural network is the following:
 The below image illustrates an example of multi hidden layers neural neural networks, and it's refered to as multi layer perceptron.
 ![image of multi hidden layers](images/Multi-Hidden-Layers.png)
 
+<br/>
+
+## Example: Recognizing Images
+
+
+### Face Recognition
+
+Neural Networks takes picture, and outputs identity of the person
+
+- The image input is 1000 X 1000 Pixels Gird/ Matrix of Pixel Intensity Values.
+- Where Each single pixel intenstiy value can range from 0 to 255.
+- If the matrix of pixel are rolled into single vector
+- The feature vector $\vec{X}$ it will be milion numbers
+
+
+**When a Neueral Network trains on a lot of images of faces, what features are the hidden layer will compute?**
+
+1. First hidden layers will look for short line or edges
+
+2. Next layer neurons will learn to group together lots of short lines or edges in order to find parts of faces. For example, search for eye presence and position, nose, etc.
+
+3. Next hidden layer the neurons will try aggregating different parts of faces to detect presence or absence. Like, larger coarser face shapes. Then finally detecting how much the face corresponds to different face shape create rich set of feature. Which helps the output layer in finding the identity of the person.
+
+
+It will learn all the features by itself from data only!
+
+For each hidden layer, the size of the window is becoming larger.
+
+The small neurons corresponds to differently sized regions in the image.
+
+Activation are high level features
+
+
+![image of face recognition](images/Face-Recognition.png)
+
+
+
+### Car Classification
+
+
+
+
+
+
+
 
