@@ -7,11 +7,11 @@ The Funedamental building block of modern Neural Network is layer of neurons, an
 The following section will cover how a network layer works in details, with the hidden layers, logistic regression, and activation function.
 
 
-**The layer number goes a follows:**  
+**The layer numbering goes a follows:**  
 
-- Layer 0: Input Layer and it's where the $\vec{X}$ reside
-- Layer 1: Hidden Layer
-- Layer 2: Output Layer
+- Layer 0: Input Layer and it's where the $\vec{X}$ reside.
+- Layer 1: Hidden Layer, the input will be $\vec{X}^{[0]}$ and output will be $a^{[1]}$.
+- Layer 2: Output Layer, the input will be $\vec{a}^{[1]}$, and output will be $a^{[2]}$ whic is a scalar.
 
 
 **To distunguish the layer the following notation for layer numbering:**  
@@ -20,9 +20,7 @@ Use superscript [layer number]
 - $sample^{[2]}$ to denote the output of layer 2/ output layer.
 
 
-
-
-### Example:
+### Example of a neural network with 1 hidden layer:
 
 The input layer will consist of $\vec{X}$, and contains 4 feature which are $x_{1}, x_{2}, x_{3}, x_{4}$.
 
@@ -30,12 +28,10 @@ $\vec{X} = [197, 184, 136, 214]$
 
 Each neuron in the hidden layer implements logistic regression.
 
-First neuron in the hidden layer has 2 parameters $\vec{W}_{1}, b_{1}$.
-
 ***Logitsic regression will be used across all the neurons!***
 $$g(Z) = {1 \over {1 + e^{-Z}}}$$
 
-**For first neuron $a_{1}$ in the layer 1/hidden layer:**
+#### 1. For first neuron $a_{1}$ in the layer 1/hidden layer:
 
 $neuron^{1}=> \vec{W}_{1}^{[1]} , \vec{b}_{1}^{[1]}$  
 $$
@@ -50,7 +46,7 @@ $$
 a_{1}^{[1]} = 0.3
 $$
 
-**For second neuron $a_{2}$ in the layer 1/hidden layer:**
+#### 2. For second neuron $a_{2}$ in the layer 1/hidden layer:
 
 $neuron^{2}=> \vec{W}_{2}^{[1]} , \vec{b}_{1}^{[2]}$
 
@@ -66,7 +62,7 @@ $$
 a_{2}^{[1]} = 0.7
 $$
 
-**For third neuron $a_{2}$ in the layer 1/hidden layer:**
+#### 3. For third neuron $a_{2}$ in the layer 1/hidden layer:
 
 $neuron^{2}=> \vec{W}_{3}^{[1]} , \vec{b}_{1}^{[1]}$
 
@@ -97,7 +93,7 @@ The following image showcases the steps which were done in order to compute the 
 ![image of neural network layer1](images/NN-Layer-1.png)
 
 
-**For the only neuron $a_{1}$ in the layer 2/output layer:**
+#### For the only neuron $a_{1}$ in the layer 2/output layer:
 
 The input to layer 2 is the output of layer 1!
 
@@ -119,9 +115,27 @@ a^{[2]} = 0.84
 $$
 
 
-
-The following image showcases the steps which were done in order to compute the activation of single neuron in layer 2/ output layer, and the output will be a vector $\vec{a}^[1]$
+The following image showcases the steps which were done in order to compute the activation of single neuron in layer 2/ output layer, and the output will be a scalar $\vec{a}^[2]$
 ![image of neural network layer 2](images/NN-Layer-2.png)
+
+<br/>
+
+### Optional Step Predict category 1 or 0 (Yes/No)
+
+Take the activation of the layer 2/ output layer $a^{[2]}$ and threshold the value.
+
+is $a^{[2]} \ge 0.505$?
+
+- yes: $\hat{y} = 1$
+- no: $\hat{y} = 0$
+
+The following image showcases how we can take the activation of the neural network $a^{[2]}$ from the output layer to evaluate it to a category. The same was done in the logistic regression!
+![image of the output category](images/NN-Output-Category.png)
+
+
+
+
+
 
 
 
