@@ -64,7 +64,7 @@ $$
 
 #### 3. For third neuron $a_{2}$ in the layer 1/hidden layer:
 
-$neuron^{2}=> \vec{W}_{3}^{[1]} , \vec{b}_{1}^{[1]}$
+$neuron^{3}=> \vec{W}_{3}^{[1]} , \vec{b}_{3}^{[1]}$
 
 $$
 a_{3}^{[1]}  = g(\vec{W}_{3}^{[1]} \cdot \vec{X}_{3}^{[1]} + b_{3}^{[1]})
@@ -102,11 +102,11 @@ $\vec{a}^{[1]} = [0.3, 0.7, 0.2]$
 $neuron^{1}=> \vec{W}_{1}^{[2]} , \vec{b}_{1}^{[2]}$
 
 $$
-a_{1}^{[2]}  = g(\vec{W}_{1}^{[2]} \cdot \vec{a}_{1}^{[2]} + b_{1}^{[2]})
+a_{1}^{[2]}  = g(\vec{W}_{1}^{[2]} \cdot \vec{a}^{[1]} + b_{1}^{[2]})
 $$
 
 $$
-z_{1}^{[2]} = \vec{W}_{3}^{[2]} \cdot \vec{a}_{3}^{[2]} + b_{3}^{[2]}
+z_{1}^{[2]} = \vec{W}_{1}^{[2]} \cdot \vec{a}^{[1]} + b_{1}^{[2]}
 $$
 
 The value is scalar value, and this will be final output of the neural network
@@ -134,13 +134,103 @@ The following image showcases how we can take the activation of the neural netwo
 
 
 
-
-
-
-
-
-
 ## More Complex Neural Networks
+
+The following section will build the previous section to build a more complex neural network. 
+
+
+### Example of Complex Neural Network with 3 hidden layers
+
+
+Below is the architecture of the complex neural network in which it has 3 hidden layers.
+
+The layer can be represented as the following:
+- Layer [0]: Input/Features Layer
+- Layer [1]: Hidden Layer 1
+- Layer [2]: Hidden Layer 2
+- Layer [3]: Hidden Layer 3
+- Layer [4]: Output Layer
+
+
+![image of complex neural netowork](images/Complex-NN-Overview.png)
+
+
+
+#### Hidden Layer [3] in details
+
+- Represented as Layer[3]
+- Has 3 neurons/ 3 hidden units
+- Input: Takes vector $\vec{a}^{[2]}$  
+- Output: vector $\vec{a}^{[3]}$
+
+
+**The 3 neurons in the layer goes as the following:**  
+(Note that the $\vec{a}$ term here is referncing the previous layer output $\vec{a}^{[2]}$)
+
+
+Neuron 1 the parameters $\vec{W}_{1}, b_{1}$:
+$$
+a_{1}^{[3]} = g(\vec{W}_{1}^{[3]} \cdot \vec{a}^{[2]} + b_{1}^{[3]})
+$$
+
+Neuron 2 the parameters $\vec{W}_{2}, b_{2}$:
+$$
+a_{2}^{[3]} = g(\vec{W}_{2}^{[3]} \cdot \vec{a}^{[2]} + b_{2}^{[3]})
+$$
+
+Neuron 3 the parameters $\vec{W}_{3}, b_{3}$:
+$$
+a_{3}^{[3]} = g(\vec{W}_{3}^{[3]} \cdot \vec{a}^{[2]} + b_{3}^{[3]})
+$$
+
+The layer result activation vector will be:
+$$
+\vec{a}^{[3]} = [a_{1}^{[3]} \space a_{2}^{[3]} \space a_{3}^{[3]}]
+$$
+
+The following depicts the layer 3 of the complex neural network in details. As it shows that instead of having $\vec{X}$ it not takes th activation value from the previous layer $a^{[2]}$. The output activation value of the layer will be $a^{[3]}$
+![image of complex neural network layer 3 in details](images/Complex-NN-Layer-3.png)
+
+
+### Notation Quiz 
+In the following pictures it's a quiz to check my understanding of notations for the activation value $a$.
+![image of complex neural network quiz](images/Complex-NN-Quiz-1.png)
+
+Explaintation of the correct activation $a$ notation
+![image of complex neural network quiz](images/Complex-NN-Quiz-2.png)
+
+
+### Notation
+
+The notation for any activation can be summarized as the following.
+
+$$
+a_{j}^{[l]}= g(\vec{W}_{j}^{[l]} \cdot a^{[l-1]} + b_{j}^{[l]})
+$$
+
+$a_{j}^{[l]}$:
+Activation value of layer $l$, unit(neuron) $j$
+
+$a^{[l-1]}$:
+Output of layer $l-1$ (previous layer)
+
+$\vec{W}_{j}^{[l]}, b_{j}^{[l]}$:
+Parameters of $w, b$ of layer $l$, unit $j$
+
+$g$:
+Refers to the sigmoid function/ "activation function"
+
+
+$\vec{X} = \vec{a}^{[0]}$:
+Feature vector $\vec{X}$ will now be refered to as $\vec{a}^{[0]}$
+
+
+The following image showcases the general notation for all layers.
+- The features vector $\vec{X}$ in input layer/ layer 0 will now be changed into $\vec{a}^{[0]}$.
+- $j$th neuron will be refered to as a unit in a layer.
+![](images/Complex-NN-Notation.png)
+
+
 
 ## Inference: Making Prediction (Forward Propagation)
 
