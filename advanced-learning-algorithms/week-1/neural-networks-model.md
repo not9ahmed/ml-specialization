@@ -234,4 +234,95 @@ The following image showcases the general notation for all layers.
 
 ## Inference: Making Prediction (Forward Propagation)
 
+The following section will discuss an algorithms that mamke the algorithms make a prediction.
+
+
+### Example: Handwritten Digit Recognition
+
+A machine learning model which recognizes if the letter is 0 or 1. Binary Classifciation problem
+
+
+- Input: $l[0]$ It consists of features $\vec{X}$ or $a^{[0]}$ digit image size of 8 X 8 Pixels grid/matrix or 64 pixels intensity values.
+  - 255 denotes bright white pixel, 0 denotes black pixel, other denotes different shades of grey.
+- Hidden Layer 1: $l[1]$ Consists of 25 Units (Neurons).
+- Hidden Layer 2: $l[2]$ Consists of 15 Units (Neurons).
+- Output Layer: $l[3]$ Consists of 1 unit which gives the predictions of whether class 0 or 1.
+
+
+**For Hidden layer 1**  
+$j$ is the number of units/neurons which is 25  
+$$
+\vec{a}^{[1]} =
+\left[
+\begin{array}{l}
+    g(\vec{W}^{[1]}_{1} \cdot \vec{X}^{[1]} + b^{[1]}_{1})  \\
+    \dotso \\
+    \dotso \\
+    g(\vec{W}^{[1]}_{25} \cdot \vec{X}^{[1]} + b^{[1]}_{25})  \\
+\end{array}
+\right]
+$$
+
+The following furthers shows the hand written layer 1 in details which is conists of 25 units/ neurons so the activation "sigmoid" will be a vector of 25 values $a^{[1]}$
+![image of hand written reco problem layer 1](images/Handwritten-Layer-1.png)
+
+
+**For Hidden Layer 2**  
+$j$ is the number of units/neurons which is 15
+$$
+\vec{a}^{[2]} =
+\left[
+\begin{array}{l}
+    g(\vec{W}^{[2]}_{1} \cdot \vec{a}^{[1]} + b^{[2]}_{1})  \\
+    \dotso \\
+    \dotso \\
+    g(\vec{W}^{[2]}_{15} \cdot \vec{a}^{[1]} + b^{[2]}_{15})  \\
+\end{array}
+\right]
+$$
+
+The following furthers shows the hand written layer 2 in details which is conists of 15 units/ neurons so the activation "sigmoid" will be a vector of 15 values $a^{[2]}$
+![image of hand written reco problem layer 2](images/Handwritten-Layer-2.png)
+
+
+**For Output Layer 3**  
+$j$ is the number of units/neurons which is 1
+The output will be scalar/1 number
+
+$$
+\vec{a}^{[3]} =
+\left[
+    g(\vec{W}^{[2]}_{1} \cdot \vec{a}^{[2]} + b^{[2]}_{1})
+\right]
+$$
+
+is $a^{[3]}_{1} \ge 0.5$
+
+- yes: $\hat{y} = 1$, image is digit 1
+- no: $\hat{y} = 0$, image is not digit 1
+
+
+$f(x)$ output of the neural network which is the probability of being a handwritten "1"
+
+**Forward Propagation:**  
+- For Making predictions
+- The algorithm goes forward $\rightarrow$.
+- Propagating through the activation functions forward, from left to right.
+
+**Back Propagation:**  
+- Used for learning
+- The algorithm goes backwards $\rightarrow$.
+- Propagating through the activation functions backward, from  right to left.
+
+
+The following image showcases the 3/output layer  of a handwritten digit recognition. Which outputs the image classification. It consists of 1 single unit/neuron.
+![image of hand written reco problem layer 3](images/Handwritten-Layer-3.png)
+
+
+
+
+
+
+
+
 ## Neurons and Layers

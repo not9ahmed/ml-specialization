@@ -82,7 +82,7 @@ Neuron is tiny computer, and its' main job is take input number, and outputs one
 Building neural networks is just wiring different number of neurons together to build a robust mode.
 
 The below image showcases an examply of find the bestseller product using logistic regression.
-![image of the demand prediction](images/Deman-Prediction.png)
+![image of the demand prediction](images/Demand-Prediction.png)
 
 <br/>
 
