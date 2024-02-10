@@ -318,9 +318,123 @@ print(a2)
 a2.numpy()
 ```
 
-
 **So when you pass Numpy array into Tensorflowm it converts the numpy array into a Tensor!**
 
 
 ## Building a Neural Network
+
+In this section, everything will be put together to build neural network. Also, another way of building nn will be represented.
+
+
+**What we saw earlier:**  
+
+
+![image building neural network before](images/Building-NN-Before.png)
+
+```python
+# creates the datset with 2 features
+X = np.array([[200.0, 17.0]])
+
+# creates the first layer with 3 neurons
+# having sigmoid as the activation
+# then passing the dataset/ matrix 1 X 2
+# the result will be Matrix 1 X 3
+layer_1 = Dense(units=3, activation='sigmoid')
+a1 = layer_1(X)
+
+# will create the last/output layer
+# having sigmoid as the activation
+# then passing a1 matrix 1 X 3
+# the result will be Matrix 1 X 1
+layer_2 = Dense(units=1, activation='sigmoid')
+a2 = layer_2(a1)
+```
+
+
+### Building Neural Network Architecture
+
+The neural network architecture can be implemented using Sequential which further simplified building the architecture instead of passing the activation from each layer manually!
+![image of building neural network](images/Building-NN-After.png)
+
+```python
+# defining the 2 layers
+layer_1 = Dense(units=3, activation='sigmoid')
+layer_2 = Dense(units=1, activation='sigmoid')
+
+# Sequential: take layer_1 and layer_2 and string them togther to form a neural network
+model  = Sequential([layer_1, layer_2])
+
+# The above can be improved by doing the following
+# and it's the convention
+model = Sequential([
+    Dense(units=3, activation='sigmoid'),
+    Dense(units=1, activation='sigmoid')
+])
+
+# For dataset
+# defines a 4 X 2 matrix => 4 examples, 2 features 
+X = np.array([[200.0, 17.0],
+            [120.0, 5.0],
+            [425.0, 20.0],
+            [212.0, 18.0],
+            ])
+
+# For target values
+# defines a 1D Vector
+y = np.array([1, 0, 0, 1])
+
+
+model.complie(...)
+
+# tells tensorflow to take neural netwokr created by sequentially string togther layer_1 & layer_2
+# and train it on the data X & y
+model.fit(X, y)
+
+
+# make inference and output the corresponding value for you
+model.predict(x_new)
+```
+
+
+### Digit Classification Model
+
+Building the neural network using tensor flow Sequential model
+
+![](images/Digit-Classification-Model-Improved.png)
+
+```python
+# defining the 3 layers
+layer_1 = Dense(units=25, activation='sigmoid')
+layer_2 = Dense(units=15, activation='sigmoid')
+layer_3 = Dense(units=1, activation='sigmoid')
+
+# using tensorflow Sequential which stirngs the layers together
+Sequential([
+    layer_1,
+    layer_2,
+    layer_3
+])
+
+# gluing the layers together
+model.compile(...)
+
+
+# creating the dataset
+# 2 X 4 matirx
+X = np.array([[0...,  245, ..., 17],
+            [0..., 200, ..., 184]
+            ])
+
+# creating target values
+# 1D Vector
+y = np.array([1, 0])
+
+# training the model
+model.fit(X, y)
+
+# making inference
+model.predict(x_new)
+```
+
+
 
