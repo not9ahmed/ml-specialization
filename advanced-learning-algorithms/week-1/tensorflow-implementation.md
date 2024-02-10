@@ -129,6 +129,198 @@ The below image showcases how the digiti classification model in terms of code.
 
 ## Data in Tensorfllow
 
+This section will discuss how data is represented in Tensorflow & Numpy
+
+
+### Feature Vectors
+
+For the coffee example, we have 2 features
+1. Temprature (celsius) x1
+2. Duration (Minutes)  x2
+
+```python
+X = np.array([[200.0, 17.0]])
+```
+
+### Note About Numpy Arrays
+
+**Why are the brackets [[]] are used???**
+
+
+**Example 1:**  
+2D Array => 2 X 3 Matrix => 2 rows & 3 columns
+
+$$
+\left[
+\begin{matrix}
+    1 && 2 && 3 \\
+    4 && 5 && 6 \\
+\end{matrix}
+\right]
+$$
+
+
+In code it looks like this, where each [] represents a row in the matrix.  
+The shape of X will be (2,3)
+```python
+X = np.array([[1, 2, 4]
+            ,[4, 5, 6]])
+```
+
+
+**Example 2:**  
+2D Array => 4 X 2 Matrix => 4 rows & 2 columns
+
+$$
+\left[
+\begin{matrix}
+    0.1 && 0.2  \\
+    -3  && -4   \\
+    -.5 && -.6  \\
+    7   && 8    \\ 
+\end{matrix}
+\right]
+$$
+
+
+In code it looks like this, where each [] represents a row in the matrix.  
+The shape of X will be (4,2)
+```python
+X = np.array([[.1, .2],
+            [-3, -4],
+            [-.5, -.6],
+            [7, 8]])
+```
+
+The following images illustartes how matrices are represented as numpy arrays.
+![images of numpy arrays](images/Note-About-Numpy-Arrays.png)
+
+
+
+### For Matrices with 1 Column or 1 Rows
+
+
+1. 1 X 2 => 1 Row & 2 Columns => Row Vector
+$$
+\left[
+\begin{matrix}
+    200 && 17  \\
+\end{matrix}
+\right]
+$$
+
+In code the row vector looks like this
+```python
+X = np.array([[200, 17]])
+```
+
+2. Matrix of 1 X 2 => 2 Rows & 1 Column => Column Vector
+$$
+\left[
+\begin{matrix}
+    200 \\ 
+    17  \\
+\end{matrix}
+\right]
+$$
+
+In code the column vector looks like this
+```python
+X = np.array([[200],
+            [17]])
+```
+
+3. 1D "Vector" => 1D array with no rows & no columns, which is different than point 1. Just a list of number!
+$$
+\left[
+\begin{array}{ll}
+    200 && 17
+\end{array}
+\right]
+$$
+
+In code the column vector looks like this
+```python
+X = np.array([200, 17])
+```
+
+**In Tensorflow, the convention is to use Matrices to repsent data**  
+- To Handle large dataset
+- Computationallly Efficient internally
+
+
+### Feature Vector for Coffee Roast Problem
+
+
+The feature vector will be represented as 2D Vector/ Matrix  
+1 Example, and 2 features.
+
+Matrix of size 1 X 2:
+$$
+\left[
+\begin{array}{ll}
+    200.0 && 17.0
+\end{array}
+\right]
+$$
+
+```python
+X = np.array([[200.0, 17.0]])
+```
+
+The following image displays how from now on we willl represnt the dataset in order for it to work with Tensorflow
+![image of feature vector for coffee roast problem](images/Feature-Vectors.png)
+
+
+### Activation Error
+
+
+#### 1- Focusing on the First Layer
+
+![image of tf code tensor and np array](images/Activation-Error-1.png)
+
+```python
+X = np.array([[200.0, 17.0]])
+layer_1 = Dense(units=3, activation='sigmoid')
+
+
+# The result will be a 1 X 3 Matrix
+# [[0.2, 0.7, 0.3]]
+a1 = layer_1(X)
+
+
+# a1 is tf.Tensor data type
+#  was created to store and do computations on martices effciently
+# it's just matrix, but more general
+print(a1)
+
+# a1 converted to numpy array
+a1.numpy()
+```
+
+
+
+#### 2- Focusing on the Second Layer/ Output Layer
+
+
+![image of](images/Activation-Error-2.png)
+
+```python
+layer_2 = Dense(units=1, activation='sigmoid')
+a2 = layer_2(a1)
+
+# a2 is 1 X 1 Matrix, 1 Row & 1 Column
+# [[0.8]]
+# of type Tensor with shape (1.1), and datatype =float32
+print(a2)
+
+# convert Tensorflow Tensot into numpy array
+a2.numpy()
+```
+
+
+**So when you pass Numpy array into Tensorflowm it converts the numpy array into a Tensor!**
+
 
 ## Building a Neural Network
 
