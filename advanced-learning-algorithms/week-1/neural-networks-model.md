@@ -320,9 +320,3 @@ The following image showcases the 3/output layer  of a handwritten digit recogni
 
 
 
-
-
-
-
-
-## Neurons and Layers
