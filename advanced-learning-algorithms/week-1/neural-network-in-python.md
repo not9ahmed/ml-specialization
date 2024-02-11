@@ -120,7 +120,6 @@ The following image summarizes the entire process of forward propagation/inferen
 
 ### Example of Implementing Neural Network in Python & NumPy
 
-
 #### For $W$
 
 2 by 3 matrix => 2 Rows, and 3 columns
@@ -153,6 +152,8 @@ $$
 \right]
 $$
 
+
+Where Each Columm represents a neuron in the layer so [1, 2] is for a1_1, [-3, 4] is for a1_2 etc.
 
 **Parameter $W^{[1]}$ will be represented as the following in code:**
 ```python
