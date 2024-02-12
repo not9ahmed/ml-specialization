@@ -3,8 +3,92 @@
 
 ## How Neural Networks Are Implemented Efficiently
 
+Parallel computing hardware (GPUs, Some CPU functions) are very good at doing very large martix multiplcation.
+
+
+
+### For Loops vs. Vectorization
+
+
+#### 1- Forward Propagation in for loop
+
+```python
+# input
+x = np.array([200, 17])
+
+# weights [col1_neuron_1, col2_neuron2, col3_neuron3]
+W = np.array([[1, -3, 5],
+            [-2, 4, -6]])
+
+# bias [col1_neuron_1, col2_neuron2, col3_neuron3]
+b = np.array([-1, 1, 2])
+
+
+def dense(a_in, W, b):
+    units = W.shape[1]
+
+    a_out = np.zeros(units)
+
+    for j in range(units):
+
+        w = W[:,j]
+
+        z = np.dot(w, a_in) + b
+
+        a_out[j] = g(z)
+
+    return a_out
+
+[1, 0, 1]
+```
+
+
+
+#### 2- Forward Propagation with Vectorization
+
+```python
+# input in the shape of Matrix/2D array => 1 X 2 => 1 Row, 2 Cols
+X = np.array([[200, 17]])
+
+
+# weights [col1_neuron_1, col2_neuron2, col3_neuron3]
+# same shape as before
+W = np.array([[1, -3, 5],
+            [-2, 4, -6]])
+
+
+# bias [col1_neuron_1, col2_neuron2, col3_neuron3]
+# in the shape of Matrix 2D array => 1 X 2 => 1 Row, 2 Cols
+B = np.array([[-1, 1, 2]])
+
+
+# all params are matrices now
+def dense(A_in, W, B):
+    units = W.shape[1]
+
+    # vectorized
+    # does matrix multiplication
+    Z = np.matmul(A_in, W) + B
+
+    # computes the sigmoid for each element in the matrix Z
+    A_out = g(Z)
+
+    return a_out
+
+[1, 0, 1]
+```
+
+The following image show cases the key difference in code between normal for loop vs vectorized implementation of forward propagation
+![image of for loop vs vectorization](images/For-vs-Vectorization.png)
+
+
+
+
 
 ## Matrix Multiplication
+
+
+
 
 
 ## Matrix Multiplcation Rules
