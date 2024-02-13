@@ -87,6 +87,41 @@ The following image show cases the key difference in code between normal for loo
 
 ## Matrix Multiplication
 
+The following section is concerned with focusing on Matrix Multiplication intitution. Also, Transpose of vector/Matrix.
+//TODO: Complete the below
+
+### Dot Products
+
+
+
+$$
+\left[
+\begin{matrix}
+    1 && 2 \\
+    4 && 5 \\
+\end{matrix}
+\right]
+$$
+
+
+
+### Vector Matrix Multiplication
+
+
+
+### Matrix Matrix Multiplcation
+
+
+
+
+$$
+\left[
+\begin{matrix}
+    1 && 2 \\
+    4 && 5 \\
+\end{matrix}
+\right]
+$$
 
 
 
