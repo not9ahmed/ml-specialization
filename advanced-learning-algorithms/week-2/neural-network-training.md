@@ -47,7 +47,7 @@ Looking at the details of Tensorflow of training a model
 
 ### Model Training Steps
 
-#### 1. Specifiy How to compute output given input x, and parameters w, b (define model)
+#### Step 1- Specifiy How to compute output given input x, and parameters w, b (define model)
 
 $$
 f_{\vec{W},b} (\vec{X}) = ?
@@ -66,7 +66,7 @@ z = np.dot(w,x) + b
 f_x = 1/(1 + np.exp(-z))
 ```
 
-#### 2. Specify loss and cost
+#### Step 2- Specify loss and cost
 
 Comparing the prediction $f_{\vec{W},b}$ with the actual value  
 
@@ -92,7 +92,7 @@ J(\vec{W}, b) = {1 \over m} \sum_{i=1}^{m} {L(f_{vec{W},b} (\vec{X}^{(i)}), y^{(
 $$
 
 
-#### 3. Training data to minimze $J(\vec{W},b)$ 
+#### Step 3- Training data to minimze $J(\vec{W},b)$ 
 
 Use gradient descent to minmize the function $J(\vec{W},b)$ 
 
@@ -102,9 +102,16 @@ w = w - alpha * dj_dw
 b = b - alpha * dj_db
 ```
 
+minimze the cost as function of the paramaters of the neural network
+
+```python
+mode.fit(X, y, epochs=100)
+```
+
 
 ### Neural Network in Tensorflow
 
+How the steps are mapped in Tensorflow
 
 #### Step 1
 
@@ -117,7 +124,6 @@ model = Sequential([
 
 ])
 ```
-
 
 #### Step 2
 
@@ -136,5 +142,67 @@ minimze the cost as function of the paramaters of the neural network
 mode.fit(X, y, epochs=100)
 ```
 
-
+The below image show cases the required steps in training the model. In terms of mathematics, python, Tensorflow.
 ![image of model training steps](images/Model-Training-Steps.png)
+
+
+### The 3 Steps of Training neural networks in details:
+
+#### 1. Create the model 
+
+The below code specifies the entire architecure of the neural network.
+- The number of layers
+- The number of units/neurons in each layer, which will be the number of parameters $W^{[1]}, b^{[1]}$
+- The activation function in layers
+
+```python
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential([
+    Dense(units=25, activation='sigmoid'),
+    Dense(units=15, activation='sigmoid'),
+    Dense(units=1, activation='sigmoid')
+])
+```
+
+The below image showcases the first step in training the model which is defining the model architecture, which consists of number of layers, units, activation function.
+![image of the first step in training nn](images/Training-Step-1.png)
+
+
+#### 2. Loss and Cost Function
+
+What is the loss function which also defines the cost function as it's the average of the all loss for training examples.
+
+
+Handwritten Digit Classification Problem --> Binary Classification (2 classes => 1/0, yes/no)
+
+Compare prediction vs target value
+
+**Logistic Loss, also known as Binary CrossEntropy**
+
+$$
+L(f(\vec{X},y)) = -y log(f(\vec{X})) - (1 - y)(1 - f(\vec{X}))
+$$
+
+```python
+form tensorflow.keras.losses import BinaryCrossEntropy
+
+model.compile(loss= BinaryCrossEntropy())
+```
+
+The cost is taking the average of all m training examples on the loss of all training examples.
+
+Optimizing this cost function will result fitting neural network to binary classification data.
+
+
+**Regression (Predicting numbers and not categories)**
+
+```python
+from tensorflow.keras.losses import MeanSquaredError
+
+model.compile(loss= MeanSquaredError())
+```
+
+![](images)
