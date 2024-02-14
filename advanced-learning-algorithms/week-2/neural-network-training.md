@@ -205,4 +205,43 @@ from tensorflow.keras.losses import MeanSquaredError
 model.compile(loss= MeanSquaredError())
 ```
 
-![](images)
+
+**Cost function of all parameters in neural network:**
+$$
+J(W, B) = {1 \over m} \sum_{i=1}^{m} {L(f_{W,B}(\vec{X^{(i)}},y^{(i)}))}
+$$
+
+**Where the parameters is across different layers**  
+$W^{[1]}, W^{[2]}, W^{[3]}$  
+$B^{[1]}, B^{[2]}, B^{[3]}$
+
+
+The below image showcases the second step of training neural network, which is selecting and computing the loss  and cost functions for the neural network.
+![image of training step 2 in nn](images/Training-Step-2.png)
+
+
+#### 3. Gradient Descent
+
+Ask Tensorflow to minimze the cost function $J(W, B)$
+
+
+For every layer and unit $j$ update $w^{[l]}_{j}$, and for parameter $b^{[l]}_{j}$
+
+Repeat {
+$$
+w^{[l]}_{j} = w^{[l]}_{j} - \alpha {\partial \over {\partial w_{j}}} J(\vec{W},b)  
+$$
+
+$$
+b^{[l]}_{j} = b^{[l]}_{j} - \alpha {\partial \over {\partial b_{j}}} J(\vec{W},b)
+$$
+}
+
+The key thing here is to Computing the partial derivative for Gradient Descent using algorithm called **"Back Propagation"**
+
+```
+model.fit(X,y, epouchs=100)
+```
+
+The following is the last step in training neural network, and it's the gradient descent which optimize the parameters in order to minimze the cost.
+![image of training step 3 in nn](images/Training-Step-3.png)
