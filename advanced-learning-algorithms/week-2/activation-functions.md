@@ -197,11 +197,121 @@ model = Sequential([
 - Swish
 
 
-
-
 The below image summarizes the activation choice to be used in each layer of the neural network.
 ![image of the choosing activation summmary](images/Choosing-Activation-Summary.png)
 
 
 
 ## Why Do We Need Activation Functions
+
+If we don't use activation functions in every neuron in the neural network, it will not work.
+
+
+if all $g(z)$ are linear, then all the neural network will be just a linear regression.
+
+$$
+f(\vec{X}) = \vec{W} \cdot \vec{X} + b
+$$
+
+
+![image of why activation functions are needed](images/Why-Activation-Needed.png)
+
+
+### Linear Example
+
+- One feature $x = [2]$
+- $w^{[1]}_{1}$ is scalar, since it's one input feature
+- $b^{[1]}_{1}$ is scalar
+- $a^{[1]}$ is scalar since there is only one unit in the layer
+- $g(z) = z$
+
+
+**For the first layer:**
+$$
+a^{[1]} = w^{[1]}_{1} x + b^{[1]}_{1}
+$$
+
+**For the second layer:**
+$$
+a^{[2]} = w^{[1]}_{1} a^{[1]} + b^{[1]}_{1}
+$$
+
+Substituting $a^{[1]}$
+$$
+= w^{[2]}_{1} (w^{[1]}_{1} x + b^{[1]}_{1}) + b^{[2]}_{1}
+$$
+
+
+$$
+a^{[2]} = (w^{[2]}_{1} w^{[1]}_{1}) x + w^{[2]}_{1} b^{[1]}_{1} + b^{[2]}_{1}
+$$
+
+
+Then we consider the below inner terms as
+$$
+w = (w^{[2]}_{1} w^{[1]}_{1}) x 
+$$
+
+$$
+b = w^{[2]}_{1} b^{[1]}_{1} + b^{[2]}_{1}
+$$
+
+We get the following:
+$$
+a^{[2]} = w x + b
+$$
+
+Linear Regression
+$$
+f(x) = wx + b
+$$
+
+Because the fact in linear algebra is that:
+- a linear regression of a linear regression
+  - is **linear regreesion**!
+
+
+**As a result having multiple neural network with linear regression does not allow the nn to compute complex features.**
+
+
+The below image showcases that having multiple layer in neural network having linear activation function does not allow the model to compute complex features. As it's known that linear function of a of a linear function results in a linear function.
+
+![image of linear examples](images/Linear-Example.png)
+
+
+
+### Genral Case Example
+
+
+**Case 1:**  
+$g(z) =z$
+$$
+a^{[4]} = \vec{W}^{[4]}_{1} a^{[3]} + b^{[4]}_{1}
+$$
+
+All linear (including output)
+- Equivalent to Linear Regression
+
+
+**Case 2:**
+$$
+a^{[4]} = {1
+\over 
+1 + e^{-(\vec{W}^{[4]}_{1} a^{[3]} + b^{[4]}_{1})}
+}
+$$
+
+Output activation is sigmoid (Hidden layers still linear)
+- Equivalent to logistic regression
+
+
+**Don't use linear activations in hidden layers, use ***ReLU***!!**
+
+
+The below image shows how the activation affects the resultant output.
+- In case of all linear regression across all layers, it results in a linear regression
+- In case of linear in only hidden layer, but sigmoid in ouput, the result will be logistic.
+- So it's better to use ReLU in the hidden layers.
+![image of general case of activation function](images/General-Example.png)
+
+
