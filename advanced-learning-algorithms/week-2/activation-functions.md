@@ -315,3 +315,6 @@ The below image shows how the activation affects the resultant output.
 ![image of general case of activation function](images/General-Example.png)
 
 
+## Topics to study
+
+- More Activation functions which are used
