@@ -450,6 +450,35 @@ model.compile(loss=BinaryCrossentropy(from_logits=True))
 
 #### Softmax regression
 
+$$
+(a_{1}, \dotso, a_{1}) = g(z_{1}, \dotso, z_{10})
+$$
+
+
+$$
+loss = L(\vec{a}, y) = 
+    \begin{cases}
+    - \log\left(a_{1} \right) & \text{if $y=1$}\\
+    \dotso \\
+    - \log\left(a_{10} \right) & \text{if $y=10$}\\
+  \end{cases}
+$$
+
+
+
+```python
+model = Sequential([
+    Dense(units=25, activation='relu'),
+    Dense(units=15, activation='relu'),
+
+
+    Dense(units=10, activation='softmax') 
+])
+
+model.compile(SparseCategoricalCrossentropy())
+```
+
+
 
 
 
