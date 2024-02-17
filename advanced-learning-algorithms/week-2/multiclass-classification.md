@@ -276,10 +276,115 @@ Teh following image summarizes the differences between Logistic Rgression Cost, 
 
 
 
-
-
 ## Neural Network with Softmax Output
 
+Take softmax model and will be placed in the output layer of neural netowrk.
+
+
+**The changes will be the following:**
+
+- Output layer with single unit will be replaced with softmax output layer.
+- The output layer will have 10 units/neurons for 10 classes.
+- Compute $z_{1}, \dotso, z_{10}$.
+
+
+**For the output softmax layer:**
+$$
+Z^{[3]}_{1} = \vec{W}^{[3]}_{1} \cdot \vec{a}^{[2]} + b^{[3]}_{1}
+\;\;\;\;\;\;\;\;
+a^{[3]}_{1} = {
+    {e^{z^{[3]}_{1}}}
+    \over
+    {e^{z^{[3]}_{1}}} + \dotso + {e^{z^{[3]}_{10}}}
+    } 
+= P(y = 1|\vec{X})
+$$
+
+$$
+\dotsb
+$$
+
+$$
+Z^{[3]}_{10} = \vec{W}^{[3]}_{10} \cdot \vec{a}^{[2]} + b^{[3]}_{10}
+\;\;\;\;\;\;\;\;
+a^{[3]}_{10} = {
+    {e^{z^{[3]}_{10}}}
+    \over
+    {e^{z^{[3]}_{1}}} + \dotso + {e^{z^{[3]}_{10}}}
+    } 
+= P(y = 10|\vec{X})
+$$
+
+
+Softmax depends on all the values of $Z$ across all units, unlike sigmoid function!
+
+**Logistic Regression:**  
+$a^{[3]}_{1} = g(z^{[3]}_{1}) \;\;\;\; a^{[3]}_{2} = g(z^{[3]}_{2})$
+
+
+**Softmax:**  
+$\vec{a}^{[3]} = (a^{[3]}_{1},\dotso, a^{[3]}_{2}) = g(a^{[3]}_{1},\dotso, a^{[3]}_{2})$
+
+
+The below image showcases a neural network with 10 softmax output layer, and the layer consists of 10 units/neurons. These units represent a class.
+![image of nn with softmax output](images/NN-With-Softmax.png)
+
+
+
+### MNIST with softmax
+
+This section gives an example of defining a neural network for MNIST digit classifcation problem.
+
+
+#### Step 1: Specify the model $f_{\vec{W},b} (\vec{X})$  = ?
+
+
+```python
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense
+
+
+model = Sequential([
+    Dense(units=25, activation='relu'),
+    Dense(units=15, activation='relu'),
+
+    # since the output will be multiclass
+    Dense(units=10, activation='softmax'),
+])
+```
+
+
+#### Step 2: Specify the loss and cost $L(f_{\vec{W},b}, y)$ 
+
+
+SparseCategorical refers to the following:
+
+1. **Catageorical:** Classify y into categories
+2. **Sparse:** $y$ can only take one of these values, and not multiple category
+
+```python
+from tensorflow.keras.losses import SparseCategoricalCrossentropy
+
+model.compile(loss= SparseCategoricalCrossentropy())
+```
+
+
+
+#### Step 3: Train the model to minimze $J(\vec{W},b)$ 
+
+
+```python
+model.fit(X,Y, epochs=100)
+```
+
+**Note:**  
+- Better (Recommeneded) version later
+- Don't use the version shown here
+
+
+The below image showcases a sample code of training neural network for MNIST dataset which is a multiclassifcation problem.
+![image of MNIST with oftmax code](images//MNIST-with-Softmax.png)
 
 
 ## Improved Implementation of Softmax
