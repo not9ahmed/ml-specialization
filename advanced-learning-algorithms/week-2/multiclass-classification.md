@@ -335,7 +335,6 @@ The below image showcases a neural network with 10 softmax output layer, and the
 
 This section gives an example of defining a neural network for MNIST digit classifcation problem.
 
-
 #### Step 1: Specify the model $f_{\vec{W},b} (\vec{X})$  = ?
 
 
@@ -370,7 +369,6 @@ model.compile(loss= SparseCategoricalCrossentropy())
 ```
 
 
-
 #### Step 3: Train the model to minimze $J(\vec{W},b)$ 
 
 
@@ -388,6 +386,71 @@ The below image showcases a sample code of training neural network for MNIST dat
 
 
 ## Improved Implementation of Softmax
+
+
+### Numerical Roundoff Errors
+
+More numerically accurate implementation of logistic loss:
+
+
+#### Logistic Regression:
+$$
+a = g(z) = {1 \over {1 + e^{-z}}}
+$$
+
+
+Original Loss:  
+$$
+loss = -y log(a) - (1-y) log(1-a)
+$$
+
+```python
+model = Sequential([
+    Dense(units=25, activation='relu'),
+    Dense(units=15, activation='relu'),
+    Dense(units=1, activation='sigmoid'),
+])
+
+model.compile(loss=BinaryCrossentropy())
+```
+
+The numeric round off is fine for logistc regression.
+
+
+More accurate loss (in code):  
+- Not using $a$ directly.
+- Tell Tensorflow that this is the loss, which contain an expanded $a$ terms.
+- Tensorflow can arrange it to more numeric accurate way to compute loss function.
+$$
+loss = -y log({1 \over {1 + e^{-z}}}) - (1 - y) log(1 - {1 \over {1 + e^{-z}}})
+$$
+
+
+The below is the more accurate version 
+```python
+model = Sequential([
+    Dense(units=25, activation='relu'),
+    Dense(units=15, activation='relu'),
+
+    # will now be set ouput layer to linear activation
+    # Dense(units=1, activation='linear'),
+    Dense(units=1, activation='sigmoid'),
+])
+
+# model.compile(loss=BinaryCrossentropy())
+
+
+# (from_logits=True)
+# logit:z tensorflow will rearange it to compute intermediate value that can be rearranged terms
+# to make it more accurate
+# helps in avoid numerical round off errors in tensorflow
+model.compile(loss=BinaryCrossentropy(from_logits=True))
+```
+
+
+#### Softmax regression
+
+
 
 
 ## Classification with Multiple Outputs
