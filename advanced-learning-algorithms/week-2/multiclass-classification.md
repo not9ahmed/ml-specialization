@@ -393,6 +393,23 @@ The below image showcases a sample code of training neural network for MNIST dat
 More numerically accurate implementation of logistic loss:
 
 
+2 Different ways of computing the same quantity in computer:
+
+**Option 1**  
+
+$x = {2 \over 10,000}$
+
+**Option 2**  
+$x = (1 + {1 \over 10,000}) - (1 - {1 \over 10,000})$  
+$= {2 \over 10,000}$
+
+**In computer a round off error occurs!**
+
+This can have an impact in computing softmax activation, which can help in reducing the numerical roundd off errors.
+
+This can lead to more accurate results.
+
+
 #### Logistic Regression:
 $$
 a = g(z) = {1 \over {1 + e^{-z}}}
@@ -419,7 +436,7 @@ The numeric round off is fine for logistc regression.
 
 More accurate loss (in code):  
 - Not using $a$ directly.
-- Tell Tensorflow that this is the loss, which contain an expanded $a$ terms.
+- Tell Tensorflow that this is the loss, which contain an expanded $a$ term.
 - Tensorflow can arrange it to more numeric accurate way to compute loss function.
 $$
 loss = -y log({1 \over {1 + e^{-z}}}) - (1 - y) log(1 - {1 \over {1 + e^{-z}}})
@@ -441,12 +458,18 @@ model = Sequential([
 
 
 # (from_logits=True)
-# logit:z tensorflow will rearange it to compute intermediate value that can be rearranged terms
-# to make it more accurate
+# logit:z tensorflow will rearange it to compute intermediate value that can be rearrange terms
+# result --> more accurate
 # helps in avoid numerical round off errors in tensorflow
 model.compile(loss=BinaryCrossentropy(from_logits=True))
 ```
 
+The below image of numerical round off error in logistic regression
+![image of logistic regression round off](images/Logistic-Regression-Roundoff.png)
+
+
+
+**Numeric round off can be far worse in softmax activation**
 
 #### Softmax regression
 
@@ -472,13 +495,95 @@ model = Sequential([
     Dense(units=15, activation='relu'),
 
 
-    Dense(units=10, activation='softmax') 
+    Dense(units=10, activation='linear') 
+    # Dense(units=10, activation='softmax') 
 ])
 
-model.compile(SparseCategoricalCrossentropy())
+# have slight more round off error
+# model.compile(SparseCategoricalCrossentropy())
+
+# this version more numerical accurate 
+# due to not doing th  numerical round off
+model.compile(SparseCategoricalCrossentropy(from_logits=True))
+
+
 ```
 
 
+The below image of numerical round off error in softmax activation. by making the last layer linear, and adding the from_logits the result is now more accurate.
+![image of softmax regression roundoff](images/Softmax-Regression-Roundoff.png)
+
+
+
+### MNIST (More Numerically Accurate)
+
+
+#### Model
+
+```python
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layer import Dense
+
+
+model = Sequential([
+    Dense(units= 25, activation= 'relu'),
+    Dense(units= 15, activation= 'relu'),
+    Dense(units= 10, activation= 'linear'),
+])
+```
+
+#### Loss
+
+
+```python
+from tensorflow.keras.losses import SparseCategoricalCrossEntropy
+
+model.compile(..., loss = SparseCategoricalCrossEntropy(from_logits=True))
+```
+
+#### Fit
+
+Now instead of outputing the probabilites $a_{1}, ...,a_{10}$
+
+It is now outputing $z_{1}, ..., z_{10}$
+
+We have to define the softmax ourselves now!
+
+```python
+model.fit(X,Y, epochs=100)
+```
+
+#### Predict
+
+```python
+logits = model(X)
+
+f_x = tf.nn.softmax(logits)
+```
+
+The below image showcases a sample code with softmax activation that results in better accuracy.
+
+The key differences are the following:
+
+- output layer having linear activation
+- The additional ```from_logits=True``` parameter in BinaryCrossentropy
+- Teh additional ```logits = model(X)``` & ```f_x = tf.nn.softmax(logits)``` functions when predicting using the model.
+
+![image of MNIST with softmax with more accuracy](images/MNIST-More-Accurate.png)
+
+
+
+
+
+The below image showcases a logistic regression model with more accuracy.
+
+The key differences are the following:
+
+- output layer having linear activation
+- The additional ```from_logits=True``` parameter in BinaryCrossentropy
+- Teh additional ```logit = model(X)``` & ```f_x = tf.nn.sigmoid(logit)``` function when predicting using the model.
+![image of logistic regression with more accuracy](images/Logistic-More-Accurate.png)
 
 
 
