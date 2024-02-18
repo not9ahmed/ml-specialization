@@ -589,7 +589,60 @@ The key differences are the following:
 
 ## Classification with Multiple Outputs
 
+Different type of classfication, where each image can have multiple classes.
 
+The output will be something like the following:
+
+
+Is there a car? yes  
+Is there a bus? no  
+Is there a pedestrian? yes  
+
+The target label $y$ is a vector of 3 values.
+$$
+y = \left[
+\begin{matrix}
+    1 \\
+    0 \\
+    1 \\
+\end{matrix}
+\right]
+$$
+
+
+### How can a neural network be trained to detect multiple class?
+
+#### Approach 1: Build 3 neural networks with each can detect single a class/label
+
+
+#### Approach 2: Build a Single neural networks with 3 outputs
+
+Since we're solving 3 binary classifcation problem in the output layer:
+
+- Sigmoid functions can be used in each neuron/unit of the output label.
+
+
+$
+\vec{a}^{[3]} = \left[
+\begin{matrix}
+    a^{[3]}_{1} \\
+    a^{[3]}_{2} \\
+    a^{[3]}_{3} \\
+\end{matrix}
+\right]
+\begin{matrix}
+car   \\
+bus   \\
+pedestrain \\
+\end{matrix}
+$  
+
+**IMPORTANT:  Multi-Label Classification is not the same as multi-class classifcation!!**
+
+
+
+
+![image of multi label classification](images/Multi-Label-Classifcation.png)
 
 ## Topics to study
 - 
