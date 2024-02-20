@@ -567,8 +567,8 @@ The below image showcases a sample code with softmax activation that results in 
 The key differences are the following:
 
 - output layer having linear activation
-- The additional ```from_logits=True``` parameter in BinaryCrossentropy
-- Teh additional ```logits = model(X)``` & ```f_x = tf.nn.softmax(logits)``` functions when predicting using the model.
+- The additional `from_logits=True` parameter in BinaryCrossentropy
+- Teh additional `logits = model(X)` & `f_x = tf.nn.softmax(logits)` functions when predicting using the model.
 
 ![image of MNIST with softmax with more accuracy](images/MNIST-More-Accurate.png)
 
@@ -581,8 +581,8 @@ The below image showcases a logistic regression model with more accuracy.
 The key differences are the following:
 
 - output layer having linear activation
-- The additional ```from_logits=True``` parameter in BinaryCrossentropy
-- Teh additional ```logit = model(X)``` & ```f_x = tf.nn.sigmoid(logit)``` function when predicting using the model.
+- The additional `from_logits=True` parameter in BinaryCrossentropy
+- The additional `logit = model(X)` & `f_x = tf.nn.sigmoid(logit)` function when predicting using the model.
 ![image of logistic regression with more accuracy](images/Logistic-More-Accurate.png)
 
 
