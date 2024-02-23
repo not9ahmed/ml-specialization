@@ -266,9 +266,101 @@ $J_{train} (\vec{W},b)$ is the fraction of the train set that has been misclassi
 
 ## Model Selection and Training/ Cross Validation/ Test Sets
 
+Use Technique to choose a good model for machine learning algorithm.
+
+### Model Selection (Choosing a model)
+
+Once parameters $\vec{W}, b$ are fit to the training set, the training error $J_{train} (\vec{W,b})$ is likely lower than the actual generalization error (average error on new new examples not in training set).
+
+**$J_{test} (\vec{W},b)$ is better estimate**  
+of well the model will generalize to new data compared to $J_{train} (\vec{W},b)$
 
 
+$
+x = x_{1} \\
+f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x^{2} + w_{3} x^{3} + w_{4} x^{4} + b
+$
 
+
+### Example of Choosing a model
+
+**Degree polynomial:**  
+$d=1$
+
+
+1\. $d=1 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + b$
+  - $\Rightarrow W^{<1>}, b^{<1>} \Rightarrow J_{test} (W^{<1>}, b^{<1>})$
+
+2\. $d=2 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + b$
+  - $\Rightarrow W^{<2>}, b^{<2>} \Rightarrow J_{test} (W^{<2>}, b^{<2>})$
+
+3\. $d=3 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + w_{3} x + b$
+  - $\Rightarrow W^{<3>}, b^{<3>} \Rightarrow J_{test} (W^{<1>}, b^{<1>})$
+
+...
+
+10\.  $d=10 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + \dotso + w_{10} x + b$
+  - $\Rightarrow W^{<10>}, b^{<10>} \Rightarrow J_{test} (W^{<10>}, b^{<10>})$
+
+
+Check all the degree and pick the model with lowest values.  
+
+**For example $J_{test}(W^{<5>}, b^{<5>})$ does best.**  
+Choose $w_{1} x + \dotso + w_{5} x^{5} + b \;\;\;\;\; d=5$
+
+
+**How well does the model perform?**
+
+Report Test set error $J_{test} (W^{<5>}, b^{<5>})$
+
+It is a Flawed procedure.
+
+**The Problem:**  
+$J_{test} (W^{<5>}, b^{<5>})$ is likely an optimistic estimate of generalization error.
+- $J_{test} (W^{<5>}, b^{<5>})$ < generalization error
+
+Because an extra parameter d (degree of polynomial) was chose using the train set.
+
+$w,b$ are overly optimistic estimate of generalization error on training data.
+
+The following image showcases flawed procedure in which we choose the polynomial degree based on having the lost $J_{test}$ value. However, the degree is most likely to be an overly optimistic estimate of generalization error. Also, the parameter d is only found in train set.
+![image of flawed procedure](images/Flawed-Procedure.png)
+
+
+### Training/Cross Validation/Test Set
+
+
+**Training Set 60%**  
+$m_{train} = 6$
+
+$$
+(x^{(1)}, y^{(1)}) \\
+\dotso \\
+
+(x^{(m_{train})}, y^{(m_{train})}) \\
+$$
+
+
+**Cross Validation 20%**  
+$m_{cv} = 2$
+
+$$
+(x^{(1)}, y^{(1)}) \\
+\dotso \\
+
+(x^{(m_{cv})}, y^{(m_{cv})}) \\
+$$
+
+
+**Test Set 60%**  
+$m_{test} = 2$
+
+$$
+(x^{(1)}, y^{(1)}) \\
+\dotso \\
+
+(x^{(m_{test})}, y^{(m_{test})}) \\
+$$
 
 
 ## Topics to Learn
