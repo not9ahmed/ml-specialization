@@ -25,6 +25,8 @@ What should be done?
 6. Try increasing $\lambda$
 
 
+![image of Debugging Learning Algorithm](images/Debugging-Learning-Algorithm.png)
+
 ### Machine Learning Diagnostic
 
 **Diagonstic:**  
@@ -36,3 +38,7 @@ It will if it is worth weeks or months in collecting data, which will lead to im
 
 Diagnostics can take time to implement
 but doing so can be very good use of your time.
+
+![image of ML Diagnostic](images/ML-Diagnostic.png)
+
+

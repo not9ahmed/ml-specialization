@@ -237,7 +237,7 @@ b^{[l]}_{j} = b^{[l]}_{j} - \alpha {\partial \over {\partial b_{j}}} J(\vec{W},b
 $$
 }
 
-The key thing here is to Computing the partial derivative for Gradient Descent using algorithm called **"Back Propagation"**
+The key thing here is Computing the partial derivative for Gradient Descent using algorithm called **"Back Propagation"**
 
 ```
 model.fit(X,y, epouchs=100)

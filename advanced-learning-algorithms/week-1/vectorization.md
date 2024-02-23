@@ -1,5 +1,6 @@
 # Vectorization (Optional)
 
+<!-- NOT COMPLETED -->
 
 ## How Neural Networks Are Implemented Efficiently
 

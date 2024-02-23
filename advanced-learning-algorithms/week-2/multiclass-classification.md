@@ -405,9 +405,10 @@ $= {2 \over 10,000}$
 
 **In computer a round off error occurs!**
 
-This can have an impact in computing softmax activation, which can help in reducing the numerical roundd off errors.
+This can have an impact in computing softmax activation, which can help in reducing the numerical round off errors.
 
 This can lead to more accurate results.
+
 
 
 #### Logistic Regression:
@@ -431,7 +432,7 @@ model = Sequential([
 model.compile(loss=BinaryCrossentropy())
 ```
 
-The numeric round off is fine for logistc regression.
+**The numeric round off is fine for logistc regression.**
 
 
 More accurate loss (in code):  
@@ -505,10 +506,13 @@ model = Sequential([
 # this version more numerical accurate 
 # due to not doing th  numerical round off
 model.compile(SparseCategoricalCrossentropy(from_logits=True))
-
-
 ```
 
+
+**Numerical stability is improved if the softmax is grouped with the loss function rather than the output layer during training.**
+
+
+<br/>
 
 The below image of numerical round off error in softmax activation. by making the last layer linear, and adding the from_logits the result is now more accurate.
 ![image of softmax regression roundoff](images/Softmax-Regression-Roundoff.png)
