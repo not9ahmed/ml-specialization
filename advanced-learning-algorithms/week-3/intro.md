@@ -330,7 +330,7 @@ The following image showcases flawed procedure in which we choose the polynomial
 ### Training/Cross Validation/Test Set
 
 
-**Training Set 60%**  
+**Training Set: 60%**  
 $m_{train} = 6$
 
 $$
@@ -341,7 +341,7 @@ $$
 $$
 
 
-**Cross Validation 20%**  
+**Cross Validation: 20%**  
 $m_{cv} = 2$
 
 $$
@@ -352,7 +352,7 @@ $$
 $$
 
 
-**Test Set 60%**  
+**Test Set: 60%**  
 $m_{test} = 2$
 
 $$
@@ -363,6 +363,128 @@ $$
 $$
 
 
+**Cross Validation:**  
+refers to that it's extra dataset to cross check the validaity or accuracy of different models.
+
+**Cross Validation also refered to as:**  
+- Validation Set
+- Development Set
+- Dev Set
+
+
+The below image showcases an example of spliting the dataset into 3 subsets which are training, cross validation and test set. The cross validation is used to cross check the accuracy of different models.
+![image of cross validation set](images/Cross-Validation.png)
+
+
+### The 3 Different Formulas For Each Set
+
+
+**Training Error:**
+$$
+J_{train} (\vec{W},b) =
+{1 \over {2m_{train}}}
+\left[
+    \sum_{i=1}^{m_{train}} (f_{\vec{W},b} (\vec{X^{(i)}})
+    - y^{(i)})^{2}
+\right]
+$$
+
+
+**Cross Validation Error (Validation Error, Dev Error):**
+$$
+J_{cv} (\vec{W},b) =
+{1 \over {2m_{cv}}}
+\left[
+    \sum_{i=1}^{m_{cv}} (f_{\vec{W},b} (\vec{X_{cv}^{(i)}})
+    - y_{cv}^{(i)})^{2}
+\right]
+$$
+
+
+**Test Error:**
+$$
+J_{test} (\vec{W},b) =
+{1 \over {2m_{test}}}
+\left[
+    \sum_{i=1}^{m_{cv}} (f_{\vec{W},b} (\vec{X_{test}^{(i)}})
+    - y_{test}^{(i)})^{2}
+\right]
+$$
+
+
+![image of validation formulas](images/Validation-Formulas.png)
+
+
+### Model Selection
+
+It will be the same as before, but instead of evaluating on the test set. The parameters will be evalauted on cross validation set.
+
+
+
+1\. $d=1 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + b$
+  - $\Rightarrow W^{<1>}, b^{<1>} \Rightarrow J_{cv} (W^{<1>}, b^{<1>})$
+
+2\. $d=2 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + b$
+  - $\Rightarrow W^{<2>}, b^{<2>} \Rightarrow J_{cv} (W^{<2>}, b^{<2>})$
+
+3\. $d=3 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + w_{3} x + b$
+  - $\Rightarrow W^{<3>}, b^{<3>} \Rightarrow J_{cv} (W^{<1>}, b^{<1>})$
+
+...
+
+10\.  $d=10 \;\;\;\; f_{\vec{W},b} (\vec{X}) = w_{1} x + w_{2} x + \dotso + w_{10} x + b$
+  - $\Rightarrow W^{<10>}, b^{<10>} \Rightarrow J_{cv} (W^{<10>}, b^{<10>})$
+
+
+<br/>
+
+
+Pick $w_{1} x + \dotso + w_{4} x^{4} + b \;\;\;\;\;\;\; J_{cv} (W^{<4>}, b^{<4>})$
+
+
+Which is the 4th degree polynomial
+
+
+**Estimate generalization error of how well the model will do on new data, by using test set:**  
+$J_{test} (W^{<4>}, b^{<4>})$
+
+
+
+1. Train Set: will be used to fit the parameters.
+
+2. Cross Validation Set: Will choose the parameter d or degree of ploynomial for the model.
+
+3. Test Set: will be used for generalization error estimate of the model that is parameter $(W^{<4>}, b^{<4>})$
+
+
+![image of model selection](images/Model-Selection.png)
+
+
+### Model Selection - Choosing a Neural Network Architecture
+
+
+- To help to decide nn architecture
+
+- consider 3 models to decide how many layer, or units in each layers
+
+- Each model will have $W^{<1>}, b^{<1>}$, and will be evaluated using $J_{cv} (W^{<1>}, b^{<1>})$
+- Pick the model with the least cross validation error, and use parameters trained using the datset
+
+- To report the estimate of the generalization error, use the test set to estimate how well the neural network that was chosen will do.
+
+- Use Train Set and CV Set only in the training process.
+
+- When the final model was chosenm then evaluate using the test set.
+
+- this will ensure the test set will be fair. and not overly optimitic on how well model will generalize to new data.
+
+
+The below image illustartes the process for model selection on neural network architecture.
+![image of model select for nn](images/Model-Selection-NN.png)
+
+
+
+
 ## Topics to Learn
 
-- 
+- Cross Validation Error
