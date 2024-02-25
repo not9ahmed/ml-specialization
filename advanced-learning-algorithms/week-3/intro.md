@@ -488,3 +488,4 @@ The below image illustartes the process for model selection on neural network ar
 ## Topics to Learn
 
 - Cross Validation Error
+- Other types of Linear Regression in Sci-Kit Learn [link](https://scikit-learn.org/stable/modules/classes.html#classical-linear-regressors)
