@@ -183,14 +183,58 @@ Cross Validation evaluating different values can help to choose good value for $
 ![image of choosing regularization term](images/Choosing-Reg-Summary.png)
 
 
-
-
 ## Establishing a Baseline Level of Performance
 
+Concenrete numbres on $J_{train}$ & $J_{cv}$ to see if learning algorithm has high bias or high variance
+
+
+### Speech Recognition Example
+
+**Human Performance:** 10.6%  
+Measure how well fluent speakers can transcript audiocips.
+Can be bad due to bad audio
+
+**Training Error $J_{train}$:** 10.8%   
+What is the percentage of audioclips in data that algorithm doesn't transcript correctly.
+
+- It does slightly worse (0.2%) than human peformance, which is very good.
+
+**Cross Validation Error $J_{cv}$:** 14.8%
+
+- It does worse with cv, and it has high variance problem, as it has 4.0% more error than training error.
+
+So we conclude that that the learning algorithm has a high variance problem, and not high bias problem. (Overfitting)
+
+![image of speech recognition example](images/Speech-Recognition-Example.png)
 
 
 
+### Establishing Baseline level of Performance
 
+What is the level of error you can reasonably hope to get?
+
+- Human Level Performance
+  - Good level when using unstructured data like audio, images or text.
+- Competing algorithms performance
+- Guess based on experience
+
+
+### Bias/Varianace Examples
+
+
+**To determine Bias:**  
+Gap between Baseline performance and Training error $J_{train}$
+
+**To determine Variance:**  
+Gap between training error $J_{train}$ and cross validation error $J_{cv}$
+
+
+We can have a learning algorithm with both high bias and high variance but it's a rare occurence.
+
+
+The below image showcases an examples bias and variance problem by comparign with baseline performance. It concludes that the gap between each measure will determine the bias and variance of the learning algorithm.
+
+![image of bias and variance example](images/Bias-Variance-Examples.png)
 
 
 ## Learning Curves
