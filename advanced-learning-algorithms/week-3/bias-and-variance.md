@@ -228,7 +228,6 @@ Gap between Baseline performance and Training error $J_{train}$
 **To determine Variance:**  
 Gap between training error $J_{train}$ and cross validation error $J_{cv}$
 
-
 We can have a learning algorithm with both high bias and high variance but it's a rare occurence.
 
 
@@ -239,11 +238,64 @@ The below image showcases an examples bias and variance problem by comparign wit
 
 ## Learning Curves
 
+Learning curves are a way to understand how well the algorithm is doing as a function of the amount of experience/training examples it has.
+
+$$
+f_{\vec{W},b} = w_{1} x + w_{2} x^{2} + b
+$$
+
+$J_{train}$ = Training error  
+$J_{cv}$ = Cross validation error  
 
 
+As the training set gets bigger, the training error $J_{train}$ increases.
+
+
+In the image below, it can be observed that the quadratic learning algorithm will fit the training set easily, and the error will be low or even close to 0. However, when add more training examples the algorithm will struggle to fit all the data points.
+
+- Training error will be increase as the train set size increases.
+- Cross validation error will decrease as the training set increases. Which is opposite of the training error learning curve.
+![image of quadratic learning curve](images/Quadratic-Learning-Curve-Example.png)
+
+
+### High Bias
+
+$$
+f_{\vec{W},b} = w_{1} x + b
+$$
+
+**If a learning algorithm has high bias, then getting more training examples will not help much in achieving baseline performance.**
+
+The below image showcases a linear model with high bias learning curve. It can be observed than at certain point the 2 curves $J_{train}$ and $J_{cv}$ will flatten out, because the simple model will be unable to fit more datapoints, so it will not adjust that much.
+
+The 2 learning curves will be very far from the human level performance
+![image of high bias learning curve](images/High-Bias-Learning-Curve.png)
+
+
+### High Variance
+
+$$
+f_{\vec{W},b} = w_{1} x + w_{2} x^{2} + w_{3} x^{3} + w_{4} x^{4} + b
+$$
+With small ($\lambda$)
+
+Fits the data very well but does not generalize.
+
+When the $J_{train}$ is much higher than $J_{cv}$, then it's good indicator that it suffers from high variance problem.
+
+**If a learning algorithm suffers from high variance, getting more training data will help.**
+
+The 2 learning curves have big gap which incidates high variance, but adding more training example will help in closing that gap. As a result, high variance problem can be resolved.
+![image of high variance learning curve](images/High-Variance-Learning-Curve.png)
+
+Plotting the learning curve have a downside, which it;s computationally expensive for training differnt size subset of dataset.
+
+But it's good nonetheless, it's a good way to visualize high bias or high variance.
 
 
 ## Deciding What to Try Next
+
+
 
 
 
