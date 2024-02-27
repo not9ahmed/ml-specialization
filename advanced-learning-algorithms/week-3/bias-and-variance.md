@@ -333,16 +333,104 @@ But it makes large errors in predictions. What to try nex?
 
 **These steps either fix high bias or high variance problem.**
 
-
 ![image of learning algorithms fixes](images/Debugging-Learning-Algorithm-Fixes.png)
-
-
 
 
 ## Bias/Variance and Neural Networks
 
 
+### The Bias Variance Tradeoff
 
+
+**Simple Model**  
+High Bias  
+$
+f_{\vec{W},b} = w_{1} x + b
+$
+
+**Simple Model**  
+High Bias  
+$
+f_{\vec{W},b} = w_{1} x + w_{2} x^{2} + b
+$
+
+**Complex Model**  
+High Variance  
+$
+f_{\vec{W},b} = w_{1} x w_{2} + x^{2} + w_{3} x^{3} + w_{4} x^{4} + b
+$
+
+
+![image of bias variance tradeoff](images/Bias-Variance-Tradeoff.png)
+
+
+
+### Neural Networks and Bias Variance
+
+Large neural networks are low bias machines.
+
+Meaning, it can always fit the training set, as long it's not enormous.
+
+
+The following procedure can be followed in neural networks can be used in order to overcome the high bias and high variance problem:
+
+1. Does NN do well on training set $J_{train} (\vec{W},b)$?
+
+    - Yes: Got to Step 2
+    - No: Make the network bigger by adding more hidden layer, or more units in the layers. It requires more computing resources.
+
+2. Does it do well on the cross validation set $J_{cv} (\vec{W},b)$
+    
+    - Yes: Done!
+    - No: Get more data, or have a bigger network and go again to Step 1.
+
+![image of neural networks and bias variance](images/NN-and-Bias-Variance.png)
+
+
+### Neural Networks and Regularization
+
+
+A large neural network will usually do as well or better than smaller one so long as regularization is choosen appropriately.
+
+The downside is, large neural networks are more computing resources due to the increased number of parameters to be trained.
+
+![image of neural networks and regularzation](images/NN-and-Regularization.png)
+
+
+$$
+J(\vec{W},b) = 
+{1 \over m}
+\sum_{i=1}^{m} L(f(\vec{X}^{(i)}), y^{(i)})
++ {\lambda \over 2m} \sum_{\text{all weights W}} (w^{2})
+$$
+
+
+**Unregularized MNIST Model**
+
+```python
+layer_2 = Dense(units=15, activation="relu")
+layer_1 = Dense(units=25, activation="relu")
+layer_3 = Dense(units=1, activation="sigmoid")
+
+model = Sequential([layer_1, layer_2, layer_3])
+```
+
+
+**Regularized MNIST Model**
+
+```python
+# L2 is lambda
+# there are other types of regularizers
+
+layer_1 = Dense(units=25, activation="relu", kernel_regularizer=L2(0.01))
+layer_2 = Dense(units=15, activation="relu", kernel_regularizer=L2(0.01))
+layer_3 = Dense(units=1, activation="sigmoid", kernel_regularizer=L2(0.01))
+
+model = Sequential([layer_1, layer_2, layer_3])
+```
+
+
+![image of nn with regularization example](images/NN-Regularization-Example.png)
 
 
 ## Topics to Learn
