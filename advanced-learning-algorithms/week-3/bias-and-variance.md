@@ -295,9 +295,46 @@ But it's good nonetheless, it's a good way to visualize high bias or high varian
 
 ## Deciding What to Try Next
 
+By looking at the plot training error & cross validation, we can determine the bias and variance of learning algorithm.
 
 
+### Debugging a Learning Algorithm
 
+
+Regularized Linear Regression on Housing prices 
+
+$$
+J(\vec{W},b) =
+{1 \over 2m}
+\sum_{i=1}^{m} (f_{\vec{W},b} (\vec{X}) - y^{(i)})^{2}
++ {\lambda \over 2m} \sum_{j=1}^{n} w_{j}^{2}
+$$
+
+But it makes large errors in predictions. What to try nex?
+
+- Get more training examples
+  - Fixes high variance/ ovetfitting
+
+- Try smaller number of features ($x_{1}, x_{2}$)
+  - Fixes high variance/ ovetfitting
+
+- Try getting additional number of features
+  - Fixes high bias/ underfitting, to improve performance on training examples
+
+- Try adding polynomial features ($x_{1}^{2}, x_{2}^{2}, x_{1} x_{2}, etc$)
+  - Fixes high bias/ underfitting, to improve performance on training examples
+
+- Try decreasing $\lambda$
+  - Fixes high bias/ underfitting, to improve performance on training examples
+
+- Try increasing $\lambda$
+  - Fixes high variance/ overfitting, to fit smoother less wiggly function
+
+
+**These steps either fix high bias or high variance problem.**
+
+
+![image of learning algorithms fixes](images/Debugging-Learning-Algorithm-Fixes.png)
 
 
 
