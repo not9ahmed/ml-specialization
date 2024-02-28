@@ -103,13 +103,56 @@ If the $m_{cv}$ is very large like 5000, then I can randomly just select a subse
 ![image of error analysis](images/Error-Analysis.png)
 
 
-
-
-
-
-
-
 ## Adding Data
+
+Add more data to everything "Honeypot" Project.
+
+Add more data of the types where error analysis has indicated it might help.
+  - Go to unlabeled data and find more example of Pharma related spams. I can get more data of all examples, but it's more efficient to focus on Pharma spams.
+
+Beyond getting brand new training examples (X, y), another technique: **Data Augmentation**
+
+
+### Data Augmentation
+
+**Augumentation:**
+Modifying an existing training example to create new training example.
+
+**Such as:**
+Rotating image, enlarge image, shrink image, add contrast to image
+
+![image of data augmentation](images/Data-Augmentation.png)
+
+
+### Data Augmentation By Introducing Distorations
+
+Will make the learning algorithm more robust what is the letter "A".
+
+![image of data augmentations distorations](images/Data-Augmentation-Distortions.png)
+
+
+### Data Augmentation for Speech
+
+Adding noisy background to audioclips, is data augmentation for speech recognition.
+
+This will create new training examples, and make the model more accurate and robust.
+
+The distorations or changes made to data should be representative of the type of noise in test dataset
+
+![image of data augmentation for speech](images/Data-Aug-for-Speech.png)
+
+
+### Data Augmentation by Introducing Distortions (Continued)
+
+Distoration should be representation of the type of noise/distortions in the test set.
+
+Usually does not help to add purely random/meaningless noise to your data.
+
+
+
+
+
+
 
 
 
