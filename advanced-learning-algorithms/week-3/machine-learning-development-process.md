@@ -71,6 +71,42 @@ $$
 
 ## Error Analysis 
 
+Manually looking through 500 examples and gain insight on where the algorithm does wrong.
+
+
+
+$m_{cv}$ = 500 examples in cross validation set.
+
+Algorithm misclassifies 100 of them.
+
+Manually examine 100 examples and categorize them based on common traits.  
+
+Pharma: 21  
+Deliberate Misspellings (W4tches, med1cine): 3  
+Unsual email routing: 7  
+Steal passwords (Phising): 18  
+Spam messages in embedded image: 5
+
+**These categorizes can be overlapping (steall passwords + pharma)**
+
+If the $m_{cv}$ is very large like 5000, then I can randomly just select a subset of 100 examples. This will help to determine what's the most common type of errors.
+
+- Can collect more data for Pharma spam as it missclassifies it a lot.
+
+- Come up with new features related to specific names of pharma products, so that the algorithm can be better to classfies this type better.
+
+- Write special code to come up with extra features to see if the linking url is suspicious URL.
+
+
+**By manually examining a set of examples that the algorithm missclassifies, it will give inspiration to what do next, or if the error is rare not worth the effort**
+
+![image of error analysis](images/Error-Analysis.png)
+
+
+
+
+
+
 
 
 ## Adding Data
