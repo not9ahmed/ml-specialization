@@ -15,3 +15,85 @@
 
 ### Spam Classification Problem
 
+Some spam email mispell words intentionally in order to trick spam classifier system.
+![image of spam classification example](images/Spam-Classification-Example.png)
+
+
+### Building a Spam Classifier
+
+**Supervised Learning:**  
+
+$\vec{X}$ = features of email  
+$y$ = spam (1) or not spam (0)
+
+
+**Features:**  
+list of top 10,000 words to compute $x_{1}, x_{2}, \dotso ,x_{10,000}$
+
+
+If the word appears then mark it as 1, else 0
+$$
+\vec{X} = \left[
+\begin{matrix}
+    0 \\
+    1 \\
+    1 \\
+    1 \\
+    0 \\
+    \vdots \\
+\end{matrix}
+\right]
+
+
+\begin{matrix}
+    \text{a} \\
+    \text{andrew} \\
+    \text{buy} \\
+    \text{deal} \\
+    \text{discount} \\
+    \vdots \\
+\end{matrix}
+$$
+
+![image of spam classfier](images/Spam-Classifier.png)
+
+
+**How to try to reduce your spam classifier's error?**
+
+- Collect more data (Honeypot Project)
+
+- Develop sophisticated features based on email routing (from header)
+
+- Define sophisticated features from email body. (should "discounting" and "discount" be labeled as 1 word)
+
+- Design algorithms to detect misspellings (w4tches, med1cine)
+
+
+## Error Analysis 
+
+
+
+## Adding Data
+
+
+
+## Transfer Learning: Using Data from Different Task
+
+
+
+
+## Full Cycle of Machine Learning Project
+
+
+
+
+## Fairness, Bias, and Ethics
+
+
+
+## Topic to Study
+
+-
+
+
+
