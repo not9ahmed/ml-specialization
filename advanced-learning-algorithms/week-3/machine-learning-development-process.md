@@ -148,11 +148,40 @@ Distoration should be representation of the type of noise/distortions in the tes
 
 Usually does not help to add purely random/meaningless noise to your data.
 
+$x_{i}$ = intensity (brightness) of pixel $i$  
+$x_{i} \leftarrow x_{i} + \text{random noise}$
+
+
+### Data Synthesis
+
+**Synthesis:**
+Using artifical data inputs to create a new training example.
+
+For example: creating random texts in text editor with various fonts an taking screenshots. It will help Photo OCR to detect text from images.
+
+It is common in Computer Vision Tasks, and less of other tasks.
+
+![image of Artifical Data Synthesis for Photo OCR](images/Artifical-Data-Synthesis-for-Photo-OCR.png)
 
 
 
+### Engineering the Data Used by your System
 
+**Conventional model-centric Approach:**
+$$
+\text{AI = Code (Algorithm/Model)+ Data}
+$$
+**Work on Code**
+The algorithms today are now widely available because of that.
 
+**Data-Centric Approach:**
+$$
+\text{AI = Code (Algorithm/Model)+ Data}
+$$
+**Work on Data**
+Collect more data, collect more data on specific class based on error analysis, data augmentation, data synthesis.
+
+![image of engineering the data](images/Engineering-the-Data.png)
 
 
 
