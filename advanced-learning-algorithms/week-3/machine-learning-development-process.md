@@ -188,11 +188,109 @@ Collect more data, collect more data on specific class based on error analysis, 
 ## Transfer Learning: Using Data from Different Task
 
 
+### Transfer Learning
+
+Want to develop digit recognition from 0 to 9, but don't have enough dataset.
+
+I will use an existing neural network that was trained on 1,000,000 images for 1,000 classes recognition (cats, dogs, people).
+
+
+Use parameters from all the layers, except output layer then run optimization layer with parameters initalized as the original model.
+
+
+**Option 1:**  
+Only train the output layers parameters
+then use stochastic gradient or adam optimization gradient to update the last layer from small training datset of the digit recognition dataset
+
+- Better for smaller dataset
+- Called "Supervised pretraining"
+
+
+**Option 2:**  
+Train the parameters in the neural network including the first layer, but the 4 layers are initalized like in top.
+
+- Better for larger dataset.
+- Called "Fine tuning"
+
+
+The following image of transfer learning example where we used an existing neural network which was trained on 1,000 classes recognition and use the existing parameters to build our own digit recognition.
+![image of Transfer Learning](images/Transfer-Learning.png)
+
+
+
+### Why Does Transfer Learning Work?
+
+- First layer neurons will learn to detect certain simple features such as detect edges.
+- Then second layer will detect corners.
+- then third layer will detect further complex features such as curves/basic shapes.
+
+Use the same input type which is an image of the desired dimensions.
+
+Use neural network that was train on the same type of task, such as if the ouput is speech recognition, then use neural network that was trained on audio.
+
+
+![image of transfer learning work](images/Why-Does-Transfer-Learning-Work.png)
+
+
+
+### Transfer Learning Summary
+
+1. Download neural network parameters pretrained on a large dataset with same input type (images, audio, text) as your application (Or train your own).
+
+2. Further train (Fine tune) the network on your own data (1,000 or 50 images)
+
+Transfer learning is one of the ways that ML researcher to share their paramaters and assist other research to build on top of each other work.
+
+![image of transfer learning summary](images/Transfer-Learning-Summary.png)
+
 
 
 ## Full Cycle of Machine Learning Project
 
 
+1. Scope Project (Define Project)
+
+2. Collect Data (Define and Collect Data)
+
+3. Train Model (Training, Error Analyis & Iterative Improvement)
+   - Can Go back to collect more data based on error analysis.
+
+4. Deploy in Production (Deploy, Monitor and maintain system)
+   - Can go back to train the model if the performance is not goe
+   - Can fo back to collect more data from production ti improve performance.
+
+
+![image of full cycle of a machine learning project](images/Full-Cycle-of-ML-Project.png)
+
+
+### Deployment
+
+Take ML Model and place it in Inference Server and will call the ML Model
+
+
+**Example:**  
+
+- Mobile app will make an API call ($\vec{X}$) with Audio Clip as the example
+- Will get Inference $\hat{y}$ as (Text Transcript)
+
+
+**Software Engineering may be needed for:**
+
+- Ensure reliable and effcient predictions
+- scaling
+- Logging, the data you're getting $x$ and $\hat{y}$
+- System monitoring, figure out when data is shifting to improve the performance and accuracy
+- Model updates
+
+
+**MLOps:**
+Machine Learning Operations
+
+The practice on how to systematically to build, deploy, and maintain system to ensure that machine learning model scales well, has logs, and reliable.
+
+They ensure that it's highly optimized implementation, so the compute cost is not very expensive.
+
+![image of machine learning deployment](images/Deployment.png)
 
 
 ## Fairness, Bias, and Ethics
