@@ -35,8 +35,6 @@ $y = 1$ in presence of rare class we want to detect.
 
 **Confusion Matrix:**
 
-
-
 |              | Actual Class 1 | Actual Class 0 | |
 |--------------|--------------------|----------------------|--|
 | Predicted Class 1 | True Positive 15 | False Positive 5  | 25 |
@@ -77,13 +75,104 @@ $$
 
 ![image of precision & recall](images/Precision-Recall.png)
 
-
-
 ## Trading Off Precision and Recall
 
+High Precision, if diagnose of patient with rare disease, then the patient does have it, and it's accurate diagnosis.
 
+High recall, if patient with rare disease, then proabably the algorithm will correctly identify that disease.
+
+
+### Trading Off Precision and Recall
+
+
+**Logistic regression:** $0 < f_{\vec{W},b} < 1$
+
+Predict 1 if $f_{\vec{W}, b} \ge \cancel{0.5} \;\; \cancel{0.7} \;\; 0.9$  
+Predict 0 if $f_{\vec{W}, b} < \cancel{0.5} \;\; \cancel{0.7} \;\; 0.9$
+
+
+$$
+\text{precision} =
+{\text{true positives} \over \text{total predicited positive}}
+$$
+
+$$
+\text{recall} =
+{\text{true positives} \over \text{total actual positive}}
+$$
+
+#### 1- Suppose we want to predict $y = 1$ (rare disease) only if very confident.**
+
+Threshold will be 0.9
+
+**Raising the threshold will result in:**
+
+- Higher Precision
+- Lower Recall
+
+It might be raised due to the check up being very expensive.
+
+
+#### 2- Suppose we want to avoid missing too many cases of rare disease (when in doubt predict $y = 1$)
+
+Thresehold will be 0.3
+
+**Lowering the threshold will result in:**
+
+- Lower Precision
+- Higher Recall
+
+
+When treatment is not invasive or expensive, and leaving it is far more dangerous.
+
+More generally predict 1 if:  
+$f_{\vec{W},b} \ge threshold$
+
+
+The image below showcases that we can select a threshold in which a higher precision will be a result, but with a lower recall an vice versa.
+![image of trading off precision and recall](images/Trading-Off-Precision-And-Recall.png)
+
+
+
+### F1 Score
+
+To automoatically trade off precision and recall.
+
+How to compare precision/recall numbers?
+
+
+|             | Precision (P) | Recall (R) | ~~Average~~ | $F_{1}$ Score |
+|-------------|--------------|------------|---------|---------|
+| Algorithm 1 |     0.5      |    0.4     |  0.45   | 0.44 |
+| Algorithm 2 |     0.7      |    0.1     |   0.4   | 0.175 |
+| Algorithm 3 |     0.02     |    1.0     |  0.501  | 0.0392 |
+
+
+Average = ${{P + R} \over 2}$
+
+The average is not very good measure
+
+
+If algorithm has low precision & low recall, then it's probably not a good choice.
+
+**F1 Score:**  
+way of computing average of sorts that pays attention to which ever is lower
+
+
+$$
+F_{1} Score =
+{1 \over {{1 \over 2} ({1 \over P} + {1 \over R})}}
+= 2 {PR \over P + R}
+$$
+
+The equation is also called **Harmonic Mean**  
+
+Way of taking the average that emphasis the smaller values more
+
+![image of f1 score](images/F1-Score.png)
 
 
 ## Topics to Study
 
 - Precision/Recall
+- Harmonic Mean
