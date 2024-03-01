@@ -296,6 +296,52 @@ They ensure that it's highly optimized implementation, so the compute cost is no
 ## Fairness, Bias, and Ethics
 
 
+### Bias
+
+Hiring tool that discriminates against women.
+
+Facial recognition system matching dark skinned individuals to criminal mugshots.
+
+Biased bank loan approvals.
+
+Toxic effect of enforcing negative stereotypes.
+
+
+![image of bias](images/Bias.png)
+
+
+### Adverse Use Cases
+
+Deepfakes
+
+Spreading toxic/incendiary speech through optimizing for engagement
+
+Generating fake content for commercial or political purposes.
+
+Using ML to build harmful products, commit fraud, etc
+
+Spam vs anti-spam: Fraud vs anti-fraud
+
+![image of adverse use cases](images/Adverse-Use-Cases.png)
+
+
+### Guidelines
+
+Get a diverse team to brainstorm things that might go wrong, with emphasis on possible harm to vulnrable groups.
+
+Carry out literature search on standards/ guidelines for your industry.
+  - In finanical, they establish standards to be reasonably be fair and free from bias inn giving loans. 
+
+Audit system against possible harm prior to deployment.
+
+Develop mititgation plan (if applicable), and after deployment, monitor for possible harm
+  - self-driving cars plan in case a car is an accident.
+
+![image of guidelines](images/Guidlines.png)
+
+The other implications varies depending on the use cases of the ML System such as banks loan, and coffee roasting.
+
+
 
 ## Topic to Study
 
