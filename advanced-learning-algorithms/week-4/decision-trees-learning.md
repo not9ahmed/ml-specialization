@@ -41,11 +41,35 @@ $H(p_{1})$
 ![image of entropy as a measure of impurity](images/Entropy-As-Measure-Of-Impurity.png)
 
 
+$p_{1} =$ fraction of examples that car cats
+
+$p_{0} = 1- p_{1}$
 
 
+**Entropy Function**
+
+$$
+H(p_{1}) = - p_{1} log_{2} (p_{1}) - p_{0} log_{2} (p_{0}) \\
+\qquad\qquad\qquad 
+=  - p_{1} log_{2}(p_{1}) - (1- p_{1}) log_{2} (1- p_{1}) 
+$$
+
+We take the $log_{2}$ just to make the peak 1, and it will make interpreting the numbers easier.
+
+Note: "$0log(0)$ = 0"
+
+By convention instead of taking $log(0)$ as infinity it will be 0.
 
 
+**Gini Criteria**
+Is another form for computing the  loss for decision tree.
 
+
+The entropy function looks similar to logistic loss!
+
+
+The below image is the formula for computing the entropy in decision tree.
+![image of entropy formula](images/Entropy-Formula.png)
 
 
 ## Choosing Split: Information Gain
