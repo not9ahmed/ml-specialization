@@ -241,6 +241,26 @@ Can calculate the information gain split on a node, and pick the one with the hi
 ![image of information gain](images/Information-Gain.png)
 
 
+## Putting It Together
+
+
+- Start with all examples at the root node
+- Calculate
+- Split
+- Keep on repeating
+  - When a node is 100% class
+  - When splitting a node
+  - Information gain from additional splits
+  - When number of examples in a node is below a threshold
+
+
+
+
+
+
+
+
+
 ## Using One-Hot Encodeding of Categorical Features
 
 
