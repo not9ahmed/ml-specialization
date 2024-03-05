@@ -388,10 +388,70 @@ The others feature can be encode into number which make it then possible to feed
 
 ## Continuous Valued Features
 
+Modify decision tree to work with features with continuous values.
+
+The decision tree will work as before, but it will now include the features weight which is a continuous value.
+
+If the the weight have better information gain then split on it.
+
+The below image shows the same cats datasets but with added weight feature which is a continuous value.
+![image of continuous features weight](images/Continuous-Features.png)
 
 
+### Splitting on a Continuous Variable
+
+We split the data based on the weight is less than certain value, or some value that will be the algorithm job to do.
+
+Consider many values for the threshold and pick with the one with the highest information gain.
 
 
+**When Splitting on Weight $\le$ 8 lbs**
+$$
+H(0.5) -
+\left(
+{2 \over 10} H \left({2 \over 2} \right)
++ {8 \over 10} H \left( 3 \over 8\right)
+\right)
+= 0.24
+$$
+
+
+**When Splitting on Weight $\le$ 9 lbs**
+$$
+H(0.5) -
+\left(
+{4 \over 10} H \left({4 \over 4} \right)
++ {6 \over 10} H \left( 1 \over 6\right)
+\right)
+= 0.61
+$$
+
+
+**When Splitting on Weight $\le$ 13 lbs**
+$$
+H(0.5) -
+\left(
+{7 \over 10} H \left({5 \over 7} \right)
++ {3 \over 10} H \left( 0 \over 3\right)
+\right)
+= 0.40
+$$
+
+
+Sort all the examples according to the weight or value or feature and take all the values that are the midpoints between the sorted list of training examples as the threshold values to be considered.
+
+If the information gain from splitting on given value of the threshold, is better than the rest of features, then we will decide to split on that feature threshold.
+
+The new node with the threshold will split that datset into 2 subset. and can builld smaller decision tree based on the 2 subsets.
+
+
+**In Summary:**
+To get a decision tree to work on continuous value features at every node
+- We just consider different continuous value to split on
+- Carry out the same information gain process
+- If it has the highest infomration gain, then we split on it
+
+![image of splitting on continuous variable](images/Splitting-On-Continuous-Variable.png)
 
 
 
