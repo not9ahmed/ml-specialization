@@ -244,21 +244,104 @@ Can calculate the information gain split on a node, and pick the one with the hi
 ## Putting It Together
 
 
+The information gain allows us to choose which feature to split on one node.
+
+
+### Decision Tree Learning Process
+
 - Start with all examples at the root node
-- Calculate
-- Split
-- Keep on repeating
-  - When a node is 100% class
-  - When splitting a node
-  - Information gain from additional splits
+
+- Calculate information gain for all posssible features, and pick the one with the highest information gain
+
+- Split the dataset according to selected feature, and create left and right branches of tree, and send the training examples to either left and right branch
+
+- Keep repeating splitting process until stopping criteria is met:
+
+  - When a node is 100% one class
+  - When splitting a node will result in the tree exceeding a maximum that I have set
+  - Information gain from additional splits is less than threshold
   - When number of examples in a node is below a threshold
 
 
+![image of decision tree learning process](images/Decision-Tree-Learning-Process.png)
 
 
 
+### Recursive Splitting
 
 
+We first start with all the examples at root node, and based on the information gain on the 3 features, we decide that ear shape as root node.
+
+![image of recursive learning step 1](images/Recusrive-Splitting-1.png)
+
+
+The dataset is then split into 2 subset with each having 5 examples.
+![image of recursive learning step 2](images/Recusrive-Splitting-2.png)
+
+
+We then focus on the left sub-branch, and the right will be ignored for now.
+![image of recursive learning step 3](images/Recursive-Splitting-3.png)
+
+
+We look at the node and see if it meets the splitting critieria, but theres is a mix of examples.
+
+So we pick a feature to split on, we then go to the features and compute the infromation gain of each feature as if it's the root node.
+
+Face shape feature has the highest information gain, so it's been choosen.
+
+![image of recursive learning step 4](images/Recursive-Splitting-4.png)
+
+
+We then check for the lowest left branch, and check if it meets the criteria, and decide if we should stop splitting. We found that the criteria has been meet as all the example are now cats, so it will be a leaf node for making prediction for cat.
+
+For the right sub-branch we do the same, and the stop splitting criteria has been met also as all the examples are dogs. So it will be a leaf node for making prediction for not cat.
+
+![image of recursive splitting 5](images/Recursive-Splitting-5.png)
+
+
+
+We no turn our attention to the right sub-tree that contains 5 examples, we first check if the stop splitting criteria is meet, and it's not. So we decide to keep on splitting. We then compute the information gain on all the features, and we found that the Whiskers feature gives the highest.
+
+![image of recursive splitting 6](images/Recursive-Splitting-6.png)
+
+![image of recursive splitting 7](images/Recursive-Splitting-7.png)
+
+
+We then check these branches if they have meeting the stop splitting criteria, and we found that it does so we stop.
+
+We end up with left leaf node that predicts cat, and right leaf node that predict not cat.
+
+
+The final decision tree should look like this now
+![image of recursive splitting 8](images/Recursive-Splitting-8.png)
+
+
+**We found that :**
+- By building left subtree, we build decision tree of 5 examples
+
+- By building right subtree, we build decision tree of 5 examples
+
+(The process is called Recursion)
+
+**Recursion:**
+writing code thatthat calls itself.
+
+We build the decision tree, by building smaller decision tree and putting them all togther.
+
+**On which basis to chose depth?**
+
+
+- The larger the depth, the larger decision tree is
+but with risk with overfitting
+
+- Cross validation can be used for picking the best depth, but open source libraries have better ways to choose the best depth
+
+- If the information gain from additional split is less than a threshold
+
+- When the number of examples in a node is below is certain threshold
+
+
+![image of recursive splitting 9](images/Recursive-Splitting-9.png)
 
 
 ## Using One-Hot Encodeding of Categorical Features
@@ -289,4 +372,5 @@ Can calculate the information gain split on a node, and pick the one with the hi
 
 ## Topic to Study
 
-- 
+- Decision Trees
+- Recusrive Algorithms
