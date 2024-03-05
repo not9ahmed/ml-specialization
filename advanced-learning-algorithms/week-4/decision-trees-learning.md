@@ -340,17 +340,50 @@ but with risk with overfitting
 
 - When the number of examples in a node is below is certain threshold
 
-
 ![image of recursive splitting 9](images/Recursive-Splitting-9.png)
 
 
 ## Using One-Hot Encodeding of Categorical Features
 
+To cover features where the number of possible value is more than 2.
+
+
+### Features With Three Possible Values
+
+Ear shape feature can take on 3 posssible values
+
+The below we are creating 3 possible branches for ear shape feature.
+![image of features with 3 possible values](images/Features-With-Three-Possible-Values.png)
 
 
 
+### One Hot Encoding
+
+Rather than using Ear Feature with 3 possible values, we create three additional features which are pointy ears, floppy ears, and oval ears.
+
+One of these additional features will be 1, that's why it's called "One Hot Feature"
+
+0 will represnt that the feature is absent
+1 will represent it that the feature is present
 
 
+**One Hot Encoding:**  
+If a categorical feature can take on $k$ values, create $k$ binary features (0 or 1 valued).
+
+As a result the same algorithm can now be used without any modification.
+
+
+![image of one hot encoding](images/One-Hot-Encoding.png)
+
+
+### One Hot Encoding and Neural Networks
+
+
+One Hot encoding can help encodie categorical features using 1 and 0 so that it can be fed as inputs into neural neural network, which expects numbers as inputs.
+
+The others feature can be encode into number which make it then possible to feed the inputs to a neural network.
+
+![image of one hot encoding and nn](images/One-Hot-Encoding-And-NN.png)
 
 
 ## Continuous Valued Features
