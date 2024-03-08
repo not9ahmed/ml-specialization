@@ -125,15 +125,121 @@ Any little change to training dataset will less likely to have big impact of the
 
 ## XGBoost
 
+Most common implementation of tree ensembles or decision trees
 
+### Boosted Trees Intitution
+
+Given training set of size $m$
+
+For $b=1$ to $B$:
+
+- Use sampling with replacement to create a new training set of size $m$
+
+    - But instead of picking from all examples with equal (1/m) probability, make it more likely to pick misclassified examples from previously trained trees do poorly on.
+
+- Train a decision tree on the new dataset
+
+**Deliberate Practice:**  
+Focusing on particular piece in music which is difficult or not easy to play,
+
+
+The image below showcases boosted trees intititution. We first take from the original dataset, and check the example which the algorithm performed poorly only, then give them more probability in being picked as a subset, so the algorithm can focus on the examples which it had trouble in getting right.
+
+Will look at ensemble of trees for trees $1, \dotso, b-1$ are not doing well on
+
+When building tree $b$ will have higher probability of picking examples the previous examples did not do well on.
+
+![image of boosted trees intuition](images/Boosted-Trees-Intuition.png)
+
+
+### XGBoost (eXtreme Gradient Boosting)
+
+- Open source implementation of boosted trees
+
+- Fast effcient implementation
+
+- Good choice of default splitting criteria for when to stop splitting
+
+- Built in regularization to prevent overfitting
+
+- Highly competitive algorithm for machine learning competitions (Kaggle)
+
+
+**Rather doing sampling with replacement**
+
+- XGBoost assign different weights to different training examples, so no need to generate a lot of random chosen examples
+- As a result, it's more efficient than sampling with replacement
+
+![image of XGBoost](images/XGBoost.png)
+
+
+### Using XGBoost
+
+
+#### Classification
+
+```python
+from xgboost import XGBoostClassifier
+
+model = XGBoostClassifier()
+
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+```
+
+#### Regression
+
+```python
+from xgboost import XGBoostRegressor
+
+model = XGBoostRegressor()
+
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+```
+
+![image of using XGBoost](images/Using-XGBoost.png)
 
 
 ## When to Use Decision Trees
 
+As they're good algorithms for classification and neural networks are good too.
+
+### Decision Trees vs Neural Networks
 
 
+#### Decision Trees and Tree Ensembles
+
+- Works well on tabular data (structured) data
+
+- Not recommeneded for unstructured data (images, audio, text) 
+
+- Fast to train, as you can goo throught the iteration much quicker compared to neural networks
+![image of dt vs nn i](images/Decision-Trees-Vs-NN-1.png)
+
+- Small decision trees may be human interpretable, so we can now easily understand how the conclusion was concluded
+ - But for tree ensembles it can be complicated
+
+- Use XGBoost or Random Forrest instead of decision trees, but it's computationally more expensive
+
+
+#### Neural Networks
+
+- Works well on all types of data, including tabular (structured) and unstructured data
+
+- May be slower than a decision tree
+
+- Works with transfer learning, useful for application for smaller datasets
+
+- When building a system of multiple models working togther, it might be easier to string together multiple neural networks
+  - When neural networks are stringed togther then you can train them all togteher, but decision trees can be trained once at a time
+
+![image of decision trees vs neural networks complete](images/Decision-Trees-Vs-NN-2.png)
 
 
 ## Topic to Study
 
--
+- Decision Trees
+- Information Gain
+- Random Forrest
+- Boosted Trees/XGBoost
