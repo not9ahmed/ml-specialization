@@ -88,7 +88,7 @@ The reduction of entropy
 $p_{1}$ will refer to the example being in class cat.
 
 
-The weighted average:
+**The weighted average:**
 $$
 \left(
 {   
@@ -232,7 +232,6 @@ $$
 \left(
 w^{\text{left}} H (p_{1}^{\text{left}})
 + w^{\text{right}} H (p_{1}^{\text{right}})
-
 \right)
 $$
 
@@ -457,10 +456,83 @@ To get a decision tree to work on continuous value features at every node
 
 ## Regression Trees
 
+Generalize decision trees to predict numbers.
 
 
+### Regression with Decision Trees: Predicting a Number
+
+The target output $y$ is number, so the problem is regression problem because we want to predict a number.
+
+![image of regression with decision trees](images/Regression-With-Decision-Trees.png)
 
 
+The below image shows a constructed decision tree for the regression problem.
+
+There is no problem with decision tree that splits the same feature on the left and right sub-branches.
+
+The decision tree will take the <u>average</u> of examples weights on the leaf node.
+
+![image of regression with decision trees example](images/Regression-With-Decision-Trees-Example.png)
+
+
+### Choosing a Split in Regression Decision Trees
+
+Rather than reduce enropy/ measure of impurity problem.
+
+**In Regression Decision Trees:**  
+We try to reduce the variance of the weights of the valuse $y$ at each subset of the data.
+
+**Varinace:**
+Computes how widely a set of number varies.
+
+
+#### Steps to follow in Regression Decision Trees:
+
+1. Compute the variance for each split of the dataset according to each feature
+
+2. Compute $w^{left}$ and $w^{right}$ which is the number of example in each sub-tree
+
+3. Compute the weighted average variance after the split
+   - Varinace on left - Varinace on right
+
+**For ear shape:**
+
+Variance at the root = 20.51
+
+Variance$^{left}$ = 1.47  
+$w^{left} = 5/10$
+
+Variance$^{right}$ = 21.87  
+$w^{right} = 5/10$
+
+$$
+20.51 -
+\left(
+{5 \over 10} * 1.47 +
+{5 \over 10} * 21.87 +
+\right) \\
+=8.84
+$$
+
+The reduction in variance is 8.84 after splitting the dataset.
+
+**weighted average variance same as weighted average entropy**
+
+4. Do the same for other possible feature splits
+
+5. Choose the feature that gives largest reduction in variance
+
+6. Split that dataset according to that feature into 2 subsets
+
+7. Takes the subsets an build another decision trees and keep on splitting until the stop splitting criteria is met
+
+
+As the image below shows, the spliting process is the same as classification problem, but instead of computing the entropy, we are computing the variance.
+Thw variance will determine which feature is the best one to split on.
+
+The reduction in variance is the same as information gain, and our goal is to keep choosing the highest reduction until the stopping criteria is met. 
+
+![image of regression with decision trees splitting process](images/Regression-With-DT-Split.png)
 
 
 ## Topic to Study
