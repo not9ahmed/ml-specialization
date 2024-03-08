@@ -65,10 +65,62 @@ Lets us construct new training set that similar but slightly different that the 
 
 ## Random Forest Algorithm
 
+Creating tree ensemble using the sampling with replacement.
+
+### Generating a Tree Sample
+
+Given training set of size $m$
 
 
+**For $b = 1$ to $B$:**
+
+- Use Sampling with replacement to create a new training set of size $m$
+
+- Train decision tree to the new dataset
 
 
+$B$ recommended to be 64 or 100, the number of trees to build.
+
+Setting $B$ never hurts performance, but after having a large number of B it will not have an effect. For example $B$ as 1000
+
+
+**Bagged Decision Trees:**
+The algorithm called bagged because it's like taking examples from a bag, and the $B$ stands for "bag"!
+
+
+**Problem with Sampling with Replacement Procedure:**
+
+- Sometimes it's always using the same splits the root node, and vert similar splits near the root node.
+
+
+![image of generating a tree sample](images/Generating-A-Tree-Sample.png)
+
+
+### Randomizing the Feature Choice
+
+Randmoize th feature choice at each node that can cause the set of trees to become more different than each other.
+
+- At each node, when choosing a feature to split, If $n$ feature are available.  
+
+- Pick a random usubset of $k < n$ features and allow the algorithm to only choose from the subset of features.
+
+- Pick $k$ features as the allowed features, then out of those $k$ features choose the one with the highest infromation gain as the feature to split on
+
+
+**Typical choice for $k$:**  
+is $k = \sqrt{n}$  
+Used for larger features problem
+
+**Random Forrest Algorithm**  
+Works better than single decision tree.
+
+The sampling with replacements cause algorithm to explore a lot of small changes to data already
+
+and it's averaging over all changes to data from sampling with replacement process.
+
+Any little change to training dataset will less likely to have big impact of the overall output of the overall random forrest algorithm.
+
+![image of randomzing the feature choice](images/Randomizing-The-Feature-Choice.png)
 
 
 ## XGBoost
