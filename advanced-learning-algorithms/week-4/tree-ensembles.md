@@ -42,9 +42,32 @@ The final prediction is the most vote class of all the decision trees.
 
 ## Sampling with Replacement
 
+With replacement is important beacause if I don't do replacement then I will get the same 4 tokens.
+
+![image of sampling with replacement](images/Sampling-With-Replacement.png)
+
+The way sampling with replacement applies when building ensemble trees
+
+Construct multiple random training set that are different than the original dataset.
+
+**It goes as follows:**
+
+- We keep on taking a random example from the original dataset
+- After taking the example, the example is returned
+- We keep on doing that until the the complete subset is 10, and it may contain duplicate examples
+
+![image of sample with replacement example](images/Sampling-With-Replacement-Example.png)
+
+
+**Sampling with Replacement:**
+Lets us construct new training set that similar but slightly different that the original dataset.
 
 
 ## Random Forest Algorithm
+
+
+
+
 
 
 
