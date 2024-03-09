@@ -243,3 +243,4 @@ As they're good algorithms for classification and neural networks are good too.
 - Information Gain
 - Random Forrest
 - Boosted Trees/XGBoost
+- GridSearchCV
