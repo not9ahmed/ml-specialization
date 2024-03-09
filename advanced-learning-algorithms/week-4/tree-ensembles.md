@@ -102,7 +102,7 @@ Randmoize th feature choice at each node that can cause the set of trees to beco
 
 - At each node, when choosing a feature to split, If $n$ feature are available.  
 
-- Pick a random usubset of $k < n$ features and allow the algorithm to only choose from the subset of features.
+- Pick a random subset of $k < n$ features and allow the algorithm to only choose from the subset of features.
 
 - Pick $k$ features as the allowed features, then out of those $k$ features choose the one with the highest infromation gain as the feature to split on
 
