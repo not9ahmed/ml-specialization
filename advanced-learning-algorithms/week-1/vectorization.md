@@ -94,6 +94,36 @@ The following section is concerned with focusing on Matrix Multiplication intitu
 ### Dot Products
 
 
+Example:
+
+$$
+\left[
+\begin{matrix}
+    1 \\
+    2 \\
+\end{matrix}
+\right]
+
+\cdot
+
+\left[
+\begin{matrix}
+    3 \\
+    4 \\
+\end{matrix}
+\right]
+$$
+
+$$
+Z = (1 \times 3) + (2 \times 4) \\
+Z = 3 + 8 \\
+Z = 11
+$$
+
+
+
+
+
 
 $$
 \left[
