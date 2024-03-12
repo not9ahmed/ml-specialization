@@ -94,7 +94,7 @@ The following section is concerned with focusing on Matrix Multiplication intitu
 ### Dot Products
 
 
-Example:
+#### Example of Dot Products between vectors:
 
 $$
 \left[
@@ -121,18 +121,73 @@ Z = 11
 $$
 
 
+#### In general:
 
-
-
+We multiply each element of $\vec{a}$ with the corresponding element of $\vec{b}$, then adding up all the products.
 
 $$
+\left[
+\begin{matrix}
+    \uparrow \\
+    \vec{a} \\
+    \downarrow \\
+\end{matrix}
+\right]
+
+\cdot
+
+\left[
+\begin{matrix}
+    \uparrow \\
+    \vec{b} \\
+    \downarrow \\
+\end{matrix}
+\right]
+$$
+
+$$
+Z = \vec{a} \cdot \vec{w}
+$$
+
+
+#### Transpose:
+
+Turning a column vector into a row vector.
+
+$$
+\vec{a} =
+\left[
+\begin{matrix}
+    1 \\
+    2 \\
+\end{matrix}
+\right]
+\\
+
+\vec{a}^{T} =
+\left[
+\begin{matrix}
+    1 && 2
+\end{matrix}
+\right]
+$$
+
+
+
+
+
+
+
+
+
+<!-- $$
 \left[
 \begin{matrix}
     1 && 2 \\
     4 && 5 \\
 \end{matrix}
 \right]
-$$
+$$ -->
 
 
 
